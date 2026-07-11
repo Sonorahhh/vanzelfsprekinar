@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Je bent erbij — Vanzelfsprekinar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Work+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1509747113627215');
+fbq('track', 'PageView');
+fbq('track', 'CompleteRegistration');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1509747113627215&ev=PageView&noscript=1"/></noscript>
+<!-- Einde Meta Pixel -->
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 19px;
+    line-height: 1.65;
+    background: #1d1a3a;
+    color: #cfc9f2;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+h1, h2 { font-family: 'Fraunces', serif; color: #f5f2ff; }
+
+.inner {
+    max-width: 640px;
+    padding: 70px 28px;
+    text-align: center;
+    position: relative;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #ffb84d;
+    margin-bottom: 22px;
+    transform: rotate(-1.5deg);
+}
+
+h1 {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 26px;
+}
+
+p { margin-bottom: 1.2em; }
+
+.groot {
+    font-size: clamp(20px, 3vw, 25px);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: #f5f2ff;
+}
+
+.stappen {
+    list-style: none;
+    text-align: left;
+    margin: 40px 0;
+}
+
+.stappen li {
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.08);
+    border-left: 5px solid #ffb84d;
+    transform: rotate(-0.4deg);
+}
+.stappen li:nth-child(even) { transform: rotate(0.5deg); }
+.stappen li strong { color: #f5f2ff; }
+
+/* zwevende confetti-vormen */
+@keyframes dwarrel {
+    0%   { transform: translateY(0) rotate(0deg); }
+    50%  { transform: translateY(-18px) rotate(12deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.vorm {
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: dwarrel 5s ease-in-out infinite;
+    pointer-events: none;
+}
+.v1 { width: 40px; height: 40px; background: #ff6b57; top: 12%; left: 8%; animation-delay: 0s; }
+.v2 { width: 26px; height: 26px; background: #ffd166; top: 20%; right: 12%; animation-delay: 0.8s; }
+.v3 { width: 34px; height: 34px; background: #6c3ff2; bottom: 18%; left: 14%; animation-delay: 1.6s; }
+.v4 { width: 22px; height: 22px; background: #ffd6e8; bottom: 25%; right: 9%; animation-delay: 2.4s; }
+.v5 { width: 30px; height: 30px; background: #0f9e97; top: 45%; left: 4%; animation-delay: 1.2s; }
+.v6 { width: 18px; height: 18px; background: #e9a63c; top: 55%; right: 5%; animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<span class="vorm v1"></span>
+<span class="vorm v2"></span>
+<span class="vorm v3"></span>
+<span class="vorm v4"></span>
+<span class="vorm v5"></span>
+<span class="vorm v6"></span>
+
+<div class="inner">
+    <span class="eyebrow">Je plek is gereserveerd</span>
+    <h1>Welkom in het speelveld.</h1>
+    <p class="groot">Je hebt zojuist iets belangrijkers gedaan dan je aanmelden voor een webinar.</p>
+    <p>Je hebt ruimte gemaakt voor een perspectief dat al een tijdje op je wacht.</p>
+
+    <ul class="stappen">
+        <li><strong>1. Check je inbox.</strong> Daar staat je bevestiging met de link en alle details. Niets ontvangen? Kijk even bij je spam of promoties.</li>
+        <li><strong>2. Zet het in je agenda.</strong> Het is live en het beweegt met het moment mee. Dit wil je niet terugkijken, dit wil je meemaken.</li>
+        <li><strong>3. Neem niks mee.</strong> Geen notitieblok vol verwachtingen. Kom zoals je bent. De rest ontstaat vanzelf.</li>
+    </ul>
+
+    <p>Tot dan.</p>
+    <p class="groot">Sonja</p>
+</div>
+
+</body>
+</html>
