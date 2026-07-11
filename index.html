@@ -373,15 +373,77 @@ html.js .reveal.zichtbaar {
 
 .ademruimte { height: 26px; }
 
-.aanmeld-blok {
+/* ---------- POPUP MET AANMELDFORMULIER ---------- */
+
+.popup-achtergrond {
+    position: fixed;
+    inset: 0;
+    background: rgba(29, 26, 58, 0.82);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.popup-achtergrond.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-kaart {
+    position: relative;
     background: #fff;
     border-radius: 28px;
-    padding: 30px 26px;
-    margin-top: 44px;
-    box-shadow: 14px 14px 0 rgba(0,0,0,0.15);
-    transform: rotate(-0.5deg);
+    padding: 34px 28px 28px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 88vh;
+    overflow-y: auto;
     color: #222;
+    box-shadow: 14px 14px 0 rgba(0,0,0,0.3);
+    transform: scale(0.88) rotate(-2deg);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+.popup-achtergrond.open .popup-kaart {
+    transform: scale(1) rotate(-0.5deg);
+}
+
+.popup-titel {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #1d1a3a;
+    margin-bottom: 4px;
+    transform: rotate(-1deg);
+}
+.popup-sub {
+    font-size: 15px;
+    color: #6b6580;
+    margin-bottom: 18px;
+}
+
+.popup-sluit {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #ff6b57;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+.popup-sluit:hover { transform: rotate(90deg) scale(1.1); }
+
+body.popup-open { overflow: hidden; }
 
 @media (max-width: 600px) {
     .inner { padding: 64px 22px; }
@@ -619,16 +681,22 @@ html.js .reveal.zichtbaar {
         <p class="klap reveal">Misschien is het tijd om een speelveld te bouwen dat eindelijk net zo beweeglijk mag zijn als jij.</p>
 
         <div class="knop-wrap">
-            <a class="knop" href="#formulier">JA, IK SPRING HET SPEELVELD OP!</a>
-            <span class="knop-sub">Vul hieronder je gegevens in</span>
-        </div>
-
-        <!-- WEBINARGEEK EMBED — code van Sonja geïnstalleerd 11 juli 2026 -->
-        <div class="aanmeld-blok" id="formulier">
-            <div id="mw_wY0PhBcm8Bd_webinargeek"></div>
+            <a class="knop" href="#aanmelden">JA, IK SPRING HET SPEELVELD OP!</a>
+            <span class="knop-sub">Het formulier opent vanzelf ;-)</span>
         </div>
     </div>
 </section>
+
+<!-- ================= POPUP MET AANMELDFORMULIER ================= -->
+<div class="popup-achtergrond" id="popup">
+    <div class="popup-kaart">
+        <button class="popup-sluit" aria-label="Sluiten">&times;</button>
+        <p class="popup-titel">Yes! Spring het speelveld op.</p>
+        <p class="popup-sub">Vul je gegevens in en je plek is gereserveerd.</p>
+        <!-- WEBINARGEEK EMBED — code van Sonja geïnstalleerd 11 juli 2026 -->
+        <div id="mw_wY0PhBcm8Bd_webinargeek"></div>
+    </div>
+</div>
 
 <script>
 // scroll reveal: elementen glijden zachtjes in beeld
@@ -640,6 +708,15 @@ if ('IntersectionObserver' in window) {
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => kijker.observe(el));
 }
+
+// popup: elke button opent het aanmeldformulier
+const popup = document.getElementById('popup');
+function openPopup(e) { e.preventDefault(); popup.classList.add('open'); document.body.classList.add('popup-open'); }
+function sluitPopup() { popup.classList.remove('open'); document.body.classList.remove('popup-open'); }
+document.querySelectorAll('.knop').forEach(k => k.addEventListener('click', openPopup));
+document.querySelector('.popup-sluit').addEventListener('click', sluitPopup);
+popup.addEventListener('click', e => { if (e.target === popup) sluitPopup(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') sluitPopup(); });
 </script>
 
 <script>
