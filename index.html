@@ -272,6 +272,8 @@ h2 {
     box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
     animation: zweef 4s ease-in-out infinite;
     white-space: nowrap;
+    cursor: pointer;
+    z-index: 60;
 }
 .s-koraal .sticker { background: #fdf8ef; color: #c2185b; }
 .s-baars  .sticker { background: #1d1a3a; color: #eaff00; }
@@ -774,7 +776,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // versienummer: check in de console (F12) welke versie live staat
-console.log('Vanzelfsprekinar pagina versie 5');
+console.log('Vanzelfsprekinar pagina versie 6');
 
 // het WebinarGeek-formulier wordt pas geladen bij de eerste klik op een button
 // (als het direct bij paginaload laadt, legt het zich onzichtbaar over de pagina heen en blokkeert het de buttons)
@@ -798,7 +800,7 @@ function laadEmbed() {
 const popup = document.getElementById('popup');
 function sluitPopup() { popup.classList.remove('open'); document.body.classList.remove('popup-open'); }
 document.addEventListener('click', function (e) {
-    const knop = e.target.closest ? e.target.closest('.knop') : null;
+    const knop = e.target.closest ? e.target.closest('.knop, .sticker') : null;
     if (knop) {
         e.preventDefault();
         laadEmbed();
