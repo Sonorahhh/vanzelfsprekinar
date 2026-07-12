@@ -212,7 +212,12 @@ h2 {
 .s-zee    .knop { background: #ffd166; color: #4a3200; }
 .s-lila   .knop { background: #6c3ff2; color: #fff; }
 .s-roze   .knop { background: #c2185b; color: #fff; }
-.s-room   .knop { background: #1d1a3a; color: #ffd166; }
+.s-room   .knop {
+    background: #39ff14;
+    color: #0b2a00;
+    box-shadow: 0 8px 0 rgba(11,42,0,0.3), 0 0 26px rgba(57,255,20,0.55);
+}
+.s-room   .knop:hover { box-shadow: 0 12px 0 rgba(11,42,0,0.35), 0 0 36px rgba(57,255,20,0.75); }
 
 /* ---------- FOTO'S IN HUISSTIJL ---------- */
 
@@ -240,7 +245,7 @@ h2 {
 .s-zand   .fotolijst img { border-color: #ff6b57; box-shadow: 14px 14px 0 rgba(107,79,42,0.28); }
 .s-koraal .fotolijst img { border-color: #ffd166; box-shadow: 14px 14px 0 rgba(42,9,4,0.3); }
 .s-baars  .fotolijst img { border-color: #eaff00; box-shadow: 14px 14px 0 rgba(28,0,15,0.35); }
-.s-room   .fotolijst img { border-color: #6c3ff2; box-shadow: 14px 14px 0 rgba(29,26,58,0.22); }
+.s-room   .fotolijst img { border-color: #39ff14; box-shadow: 14px 14px 0 rgba(29,26,58,0.22), 0 0 22px rgba(57,255,20,0.35); }
 
 /* rond portret */
 .portret {
@@ -275,7 +280,7 @@ h2 {
 }
 .s-koraal .sticker { background: #fdf8ef; color: #c2185b; }
 .s-baars  .sticker { background: #1d1a3a; color: #eaff00; }
-.s-room   .sticker { background: #ff6b57; color: #fff; }
+.s-room   .sticker { background: #39ff14; color: #0b2a00; box-shadow: 5px 5px 0 rgba(11,42,0,0.25), 0 0 18px rgba(57,255,20,0.5); }
 
 /* ---------- WAAROM-LIJST: ieder zijn eigen kleur ---------- */
 
@@ -400,6 +405,25 @@ html.js .reveal.zichtbaar {
 /* ---------- OVERIG ---------- */
 
 .golf { display: block; width: 100%; height: 70px; margin-top: -1px; position: relative; z-index: 2; pointer-events: none; }
+
+/* ---------- LOGO ---------- */
+
+.logo {
+    display: block;
+    width: 230px;
+    max-width: 60%;
+    margin: 40px auto 0;
+}
+
+.voet {
+    background: #1d1a3a;
+    text-align: center;
+    padding: 46px 20px 50px;
+}
+.voet img {
+    width: 210px;
+    max-width: 60%;
+}
 
 .centreer { text-align: center; }
 
@@ -531,7 +555,7 @@ body.popup-open { overflow: hidden; }
         <p class="klap reveal">Het probleem is nooit jouw brein geweest.</p>
         <p class="reveal">Het probleem is dat je steeds hebt geprobeerd jouw beweeglijke brein te laten functioneren in statische systemen.</p>
         <div class="fotolijst reveal">
-            <img src="sonja-cafe.png" alt="Sonja, net iets te groot voor het systeem">
+            <img src="img/sonja-cafe.png" alt="Sonja, net iets te groot voor het systeem">
             <span class="sticker">iets te groot voor het systeem ;-)</span>
         </div>
     </div>
@@ -563,7 +587,7 @@ body.popup-open { overflow: hidden; }
         <p class="reveal">Niet omdat het niet goed is.</p>
         <p class="klap reveal">Maar omdat jij alweer verder bent.</p>
         <div class="fotolijst rechtsom reveal">
-            <img src="sonja-zwembadje.png" alt="Sonja in een zwembadje dat duidelijk te klein is">
+            <img src="img/sonja-zwembadje.png" alt="Sonja in een zwembadje dat duidelijk te klein is">
             <span class="sticker">herkenbaar? net iets te klein ;-)</span>
         </div>
     </div>
@@ -642,7 +666,7 @@ body.popup-open { overflow: hidden; }
             <li class="reveal">Hoe spreken, creëren en ondernemen weer één natuurlijke beweging kunnen worden.</li>
         </ul>
         <div class="fotolijst rechtsom reveal">
-            <img src="sonja-laptop.png" alt="Sonja met haar verlengstuk">
+            <img src="img/sonja-laptop.png" alt="Sonja met haar verlengstuk">
             <span class="sticker">ik + mijn verlengstuk ;-)</span>
         </div>
     </div>
@@ -682,7 +706,7 @@ body.popup-open { overflow: hidden; }
     <div class="inner centreer">
         <span class="emo emo-tol">🤖</span>
         <h2 class="kantel reveal">Over mij</h2>
-        <img class="portret reveal" src="sonja-portret.jpeg" alt="Sonja Leonie Brouwer">
+        <img class="portret reveal" src="img/sonja-portret.jpeg" alt="Sonja Leonie Brouwer">
         <p class="klap reveal">Ik ben Sonja Leonie Brouwer.</p>
         <p class="reveal" style="text-align:left;">De afgelopen acht jaar hielp ik honderden ondernemers, experts en sprekers om woorden te geven aan iets wat veel groter was dan een presentatie alleen. Ik ontwierp TEDx-waardige talks, begeleidde ondernemers naar webinars die echt iets in beweging zetten en hielp mensen niet alleen beter spreken, maar vooral steviger staan in hun eigen perspectief.</p>
         <p class="reveal" style="text-align:left;">Vandaag combineer ik die ervaring met AI.</p>
@@ -690,6 +714,7 @@ body.popup-open { overflow: hidden; }
         <p class="reveal" style="text-align:left;">Maar omdat ik geloof dat AI een briljant verlengstuk kan zijn van jouw creativiteit. Een versneller van jouw denken. Nooit de bron van jouw waarde.</p>
         <p class="reveal" style="text-align:left;">Want jouw waarde zit niet in de output van een machine.</p>
         <p class="groot reveal">Jouw waarde zit in de manier waarop jij de wereld ziet.</p>
+        <img class="logo reveal" src="img/logo-wit.png" alt="Vanzelfsprekend">
     </div>
 </section>
 <svg class="golf" style="background:#101014;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C420,70 1020,70 1440,0 L1440,0 L0,0 Z" fill="#22333d"/></svg>
@@ -715,10 +740,10 @@ body.popup-open { overflow: hidden; }
 
 <!-- ================= 10. ROOM: DE UITNODIGING + FORMULIER ================= -->
 <section class="s-room" id="aanmelden">
-    <span class="stip" style="width:38px;height:38px;background:#ffd166;top:6%;right:7%;animation-delay:0.5s;"></span>
+    <span class="stip" style="width:38px;height:38px;background:#39ff14;top:6%;right:7%;animation-delay:0.5s;"></span>
     <span class="stip" style="width:24px;height:24px;background:#ff6b57;top:12%;left:9%;animation-delay:1.7s;"></span>
     <span class="stip" style="width:30px;height:30px;background:#6c3ff2;bottom:30%;right:11%;animation-delay:2.6s;"></span>
-    <span class="stip" style="width:18px;height:18px;background:#0f5e5a;bottom:14%;left:7%;animation-delay:1s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#39ff14;bottom:14%;left:7%;animation-delay:1s;"></span>
     <div class="inner">
         <span class="emo emo-stuiter">🎪</span>
         <h2 class="kantel reveal">Wat mag er ontstaan als jij jezelf eindelijk niet meer probeert te vangen?</h2>
@@ -726,7 +751,7 @@ body.popup-open { overflow: hidden; }
         <p class="reveal">Maar om te ervaren hoe het voelt als spreken geen trucje meer is. Geen script. Geen toneelstuk waarin je iemand probeert te overtuigen.</p>
         <p class="reveal">Wel een levend speelveld waarin jij creëert terwijl je spreekt. Waarin jouw perspectief zich live mag ontvouwen. Waarin mensen niet instappen omdat jij de perfecte pitch hebt, maar omdat ze voelen dat jij iets ziet wat zij zelf nog niet konden zien.</p>
         <div class="fotolijst reveal">
-            <img src="sonja-speelveld.png" alt="Sonja op haar eigen speelveld">
+            <img src="img/sonja-speelveld.png" alt="Sonja op haar eigen speelveld">
             <span class="sticker">samen creëren we een groter speelveld ;-)</span>
         </div>
         <p class="reveal">En misschien is dat wel de grootste verschuiving van allemaal.</p>
@@ -751,6 +776,11 @@ body.popup-open { overflow: hidden; }
         </div>
     </div>
 </section>
+
+<!-- ================= FOOTER MET LOGO ================= -->
+<footer class="voet">
+    <img src="img/logo-wit.png" alt="Vanzelfsprekend">
+</footer>
 
 <!-- ================= POPUP MET AANMELDFORMULIER ================= -->
 <div class="popup-achtergrond" id="popup">
