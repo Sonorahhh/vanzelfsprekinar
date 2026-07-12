@@ -172,6 +172,8 @@ h2 {
 
 .knop {
     display: inline-block;
+    position: relative;
+    z-index: 60;
     font-family: 'Work Sans', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -292,22 +294,38 @@ h2 {
 .lijstje li:nth-child(5) { background: #ffe9c9; color: #57370a; border-left: 6px solid #b26a00; }
 .lijstje li:nth-child(6) { background: #1d1a3a; color: #cfc9f2; border-left: 6px solid #ffb84d; }
 
-/* ---------- QUOTES ---------- */
+/* ---------- QUOTES: zwart-wit met neon, ze komen je zachtjes toe ---------- */
+
+.s-zwart { background: #101014; color: #fff; }
+.s-zwart h2, .s-zwart .accent { color: #fff; }
+
+@keyframes quote-adem {
+    0%, 100% { transform: rotate(var(--draai, -0.6deg)) scale(1); }
+    50%      { transform: rotate(var(--draai, -0.6deg)) scale(1.025); }
+}
 
 .quote {
+    --draai: -0.6deg;
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-size: 21px;
     line-height: 1.5;
     padding: 26px 30px;
-    margin-bottom: 22px;
+    margin-bottom: 26px;
     border-radius: 20px;
-    background: rgba(255,255,255,0.28);
-    transform: rotate(-0.6deg);
-    transition: transform 0.3s ease;
+    background: #17171d;
+    color: #fff;
+    border: 2px solid var(--neon, #00f0ff);
+    box-shadow: 0 0 18px var(--gloed, rgba(0,240,255,0.35)), inset 0 0 14px rgba(255,255,255,0.03);
+    animation: quote-adem 4.5s ease-in-out infinite;
 }
-.quote:nth-of-type(even) { transform: rotate(0.7deg); }
-.quote:hover { transform: rotate(0deg) scale(1.02); }
+.quote:nth-of-type(even) { --draai: 0.7deg; }
+.quote:nth-of-type(1) { --neon: #00f0ff; --gloed: rgba(0,240,255,0.4);  animation-delay: 0s; }
+.quote:nth-of-type(2) { --neon: #ff2ec4; --gloed: rgba(255,46,196,0.4); animation-delay: 0.7s; }
+.quote:nth-of-type(3) { --neon: #39ff88; --gloed: rgba(57,255,136,0.4); animation-delay: 1.4s; }
+.quote:nth-of-type(4) { --neon: #ffe600; --gloed: rgba(255,230,0,0.35); animation-delay: 2.1s; }
+.quote:nth-of-type(5) { --neon: #b26bff; --gloed: rgba(178,107,255,0.4); animation-delay: 2.8s; }
+.quote:nth-of-type(6) { --neon: #ff7a1a; --gloed: rgba(255,122,26,0.4); animation-delay: 3.5s; }
 .quote .naam {
     display: block;
     font-family: 'Work Sans', sans-serif;
@@ -315,25 +333,36 @@ h2 {
     font-size: 15px;
     font-weight: 700;
     margin-top: 14px;
-    opacity: 0.8;
+    color: var(--neon, #00f0ff);
 }
 
 /* ---------- ZWEVENDE CONFETTI-STIPPEN ---------- */
 
 @keyframes dwarrel {
-    0%   { transform: translateY(0) rotate(0deg); }
-    50%  { transform: translateY(-22px) rotate(14deg); }
-    100% { transform: translateY(0) rotate(0deg); }
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(18px, -30px) rotate(10deg); }
+    50%  { transform: translate(-8px, -52px) rotate(-6deg); }
+    75%  { transform: translate(-22px, -24px) rotate(8deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes dwarrel-b {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(-20px, -26px) rotate(-9deg); }
+    50%  { transform: translate(10px, -48px) rotate(7deg); }
+    75%  { transform: translate(24px, -20px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 .stip {
     position: absolute;
     border-radius: 50%;
     opacity: 0.45;
-    animation: dwarrel 5.5s ease-in-out infinite;
+    animation: dwarrel 7s ease-in-out infinite;
     pointer-events: none;
     z-index: 1;
 }
+.stip:nth-of-type(even) { animation-name: dwarrel-b; animation-duration: 8.5s; }
 
 /* ---------- HERO GLOW ---------- */
 
@@ -367,7 +396,7 @@ html.js .reveal.zichtbaar {
 
 /* ---------- OVERIG ---------- */
 
-.golf { display: block; width: 100%; height: 70px; margin-top: -1px; position: relative; z-index: 2; }
+.golf { display: block; width: 100%; height: 70px; margin-top: -1px; position: relative; z-index: 2; pointer-events: none; }
 
 .centreer { text-align: center; }
 
@@ -484,6 +513,10 @@ body.popup-open { overflow: hidden; }
 
 <!-- ================= 2. ZAND: DE HERKENNING ================= -->
 <section class="s-zand">
+    <span class="stip" style="width:38px;height:38px;background:#ff6b57;top:12%;left:6%;animation-delay:0.3s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#e9a63c;top:20%;right:9%;animation-delay:1.2s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#6c3ff2;bottom:18%;left:11%;animation-delay:2.2s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#0f5e5a;bottom:26%;right:7%;animation-delay:0.8s;"></span>
     <div class="inner">
         <span class="emo emo-stuiter">🧠</span>
         <h2 class="kantel reveal">Misschien ben je niet op zoek naar een betere strategie.</h2>
@@ -501,8 +534,10 @@ body.popup-open { overflow: hidden; }
 
 <!-- ================= 3. KORAAL: DE CREATORS ================= -->
 <section class="s-koraal">
-    <span class="stip" style="width:26px;height:26px;background:#ffd166;top:10%;right:8%;animation-delay:0.4s;"></span>
-    <span class="stip" style="width:20px;height:20px;background:#fdf8ef;bottom:12%;left:6%;animation-delay:1.6s;"></span>
+    <span class="stip" style="width:38px;height:38px;background:#ffd166;top:10%;right:8%;animation-delay:0.4s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#fdf8ef;bottom:12%;left:6%;animation-delay:1.6s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#1d1a3a;top:38%;left:5%;animation-delay:2.5s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#ffd6e8;bottom:34%;right:6%;animation-delay:0.9s;"></span>
     <div class="inner">
         <span class="emo emo-zwaai">🎨</span>
         <h2 class="kantel reveal">Voor ondernemers die niet alleen kennis delen, maar creëren</h2>
@@ -531,6 +566,10 @@ body.popup-open { overflow: hidden; }
 
 <!-- ================= 4. ZEE: SPREKEN ALS CREATIE ================= -->
 <section class="s-zee">
+    <span class="stip" style="width:38px;height:38px;background:#ffd166;top:9%;left:7%;animation-delay:0.6s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#7fd8cf;top:30%;right:8%;animation-delay:1.8s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#ff6b57;bottom:20%;left:9%;animation-delay:2.9s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#eafffb;bottom:38%;right:5%;animation-delay:1.1s;"></span>
     <div class="inner">
         <span class="emo emo-zwaai">🎤</span>
         <h2 class="kantel reveal">Waarom spreken misschien wel jouw meest natuurlijke manier van creëren is</h2>
@@ -555,8 +594,10 @@ body.popup-open { overflow: hidden; }
 
 <!-- ================= 5. LILA: HET VERLANGEN ================= -->
 <section class="s-lila">
-    <span class="stip" style="width:32px;height:32px;background:#6c3ff2;top:12%;right:9%;animation-delay:0.8s;"></span>
-    <span class="stip" style="width:22px;height:22px;background:#ff6b57;bottom:14%;left:8%;animation-delay:1.9s;"></span>
+    <span class="stip" style="width:38px;height:38px;background:#6c3ff2;top:12%;right:9%;animation-delay:0.8s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#ff6b57;bottom:14%;left:8%;animation-delay:1.9s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#ffd166;top:36%;left:5%;animation-delay:2.7s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#1d1a3a;bottom:36%;right:6%;animation-delay:1.3s;"></span>
     <div class="inner">
         <span class="emo emo-stuiter">👀</span>
         <h2 class="kantel reveal">Mensen verlangen niet naar nóg een perfect webinar</h2>
@@ -579,6 +620,10 @@ body.popup-open { overflow: hidden; }
 
 <!-- ================= 6. OKER: WAT JE ONTDEKT ================= -->
 <section class="s-oker">
+    <span class="stip" style="width:38px;height:38px;background:#fdf8ef;top:8%;left:6%;animation-delay:0.5s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#ff6b57;top:24%;right:7%;animation-delay:1.7s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#6c3ff2;bottom:16%;left:10%;animation-delay:2.4s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#1d1a3a;bottom:32%;right:9%;animation-delay:1s;"></span>
     <div class="inner">
         <span class="emo emo-puls">💡</span>
         <h2 class="kantel reveal">Tijdens mijn gratis Vanzelfsprekinar ontdek je onder andere:</h2>
@@ -596,8 +641,10 @@ body.popup-open { overflow: hidden; }
 
 <!-- ================= 7. ROZE: VOOR WIE ================= -->
 <section class="s-roze">
-    <span class="stip" style="width:26px;height:26px;background:#c2185b;top:14%;left:7%;animation-delay:0.3s;"></span>
-    <span class="stip" style="width:20px;height:20px;background:#6c3ff2;bottom:18%;right:9%;animation-delay:1.4s;"></span>
+    <span class="stip" style="width:38px;height:38px;background:#c2185b;top:14%;left:7%;animation-delay:0.3s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#6c3ff2;bottom:18%;right:9%;animation-delay:1.4s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#ffd166;top:40%;right:5%;animation-delay:2.6s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#0f5e5a;bottom:38%;left:5%;animation-delay:0.7s;"></span>
     <div class="inner">
         <span class="emo emo-zwaai">🌶️</span>
         <h2 class="kantel reveal">Voor wie is dit?</h2>
@@ -618,10 +665,13 @@ body.popup-open { overflow: hidden; }
 
 <!-- ================= 8. INKT: OVER SONJA ================= -->
 <section class="s-inkt">
+    <span class="stip" style="width:38px;height:38px;background:#7fd8cf;top:10%;right:7%;animation-delay:0.4s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#ffd166;top:28%;left:6%;animation-delay:1.5s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#ff6b57;bottom:22%;right:10%;animation-delay:2.8s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#e7ddff;bottom:40%;left:8%;animation-delay:1.2s;"></span>
     <div class="inner centreer">
         <span class="emo emo-tol">🤖</span>
         <h2 class="kantel reveal">Over mij</h2>
-        <img class="portret reveal" src="sonja-portret.jpeg" alt="Sonja Leonie Brouwer">
         <p class="klap reveal">Ik ben Sonja Leonie Brouwer.</p>
         <div class="fotolijst reveal">
             <img src="sonja-laptop.png" alt="Sonja Leonie Brouwer">
@@ -635,25 +685,33 @@ body.popup-open { overflow: hidden; }
         <p class="groot reveal">Jouw waarde zit in de manier waarop jij de wereld ziet.</p>
     </div>
 </section>
-<svg class="golf" style="background:#e9a63c;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C420,70 1020,70 1440,0 L1440,0 L0,0 Z" fill="#22333d"/></svg>
+<svg class="golf" style="background:#101014;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C420,70 1020,70 1440,0 L1440,0 L0,0 Z" fill="#22333d"/></svg>
 
-<!-- ================= 9. OKER 2: WAT ANDEREN ERVAREN ================= -->
-<section class="s-oker">
+<!-- ================= 9. ZWART: WAT ANDEREN ERVAREN ================= -->
+<section class="s-zwart">
+    <span class="stip" style="width:38px;height:38px;background:#00f0ff;top:8%;left:6%;animation-delay:0.2s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#ff2ec4;top:22%;right:8%;animation-delay:1.6s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#39ff88;bottom:18%;left:9%;animation-delay:2.3s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#ffe600;bottom:34%;right:6%;animation-delay:0.9s;"></span>
     <div class="inner">
         <span class="emo emo-stuiter">💬</span>
         <h2 class="kantel reveal">Wat anderen ervaren</h2>
         <div class="quote reveal">"Sonja wist in één gesprek de kern te raken waar ik zelf al jaren omheen draaide. Niet alleen mijn verhaal veranderde, maar ook de manier waarop ik naar mijn bedrijf keek."<span class="naam">– Esther Muizelaar</span></div>
         <div class="quote reveal">"Ik dacht dat ik hulp nodig had bij mijn presentatie. Uiteindelijk bleek ik vooral ruimte nodig te hebben om mezelf volledig neer te zetten."<span class="naam">– Debbie Bernasco</span></div>
         <div class="quote reveal">"Ze leert je niet hoe je moet spreken. Ze helpt je ontdekken wat er al gezegd wil worden."<span class="naam">– Henk Fransen</span></div>
+        <div class="quote reveal">"Sonja beweegt mee en houdt je tegelijk een scherpe, onbevangen spiegel voor. Geen voorgekauwde sessies."<span class="naam">– Cecil Kelie</span></div>
+        <div class="quote reveal">"Sonja is zoveel meer dan een sprekerscoach. Ze is echt een strateeg en visionair in hart en nieren. Of eigenlijk een change maker."<span class="naam">– Marloes Oosterveen</span></div>
+        <div class="quote reveal">"Sonja heeft mij vanuit verhalen uit mijn hoofd gebracht naar het verhaal uit mijn hart."<span class="naam">– Richard Kamer</span></div>
     </div>
 </section>
-<svg class="golf" style="background:#fdf8ef;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C360,70 1080,70 1440,0 L1440,0 L0,0 Z" fill="#e9a63c"/></svg>
+<svg class="golf" style="background:#fdf8ef;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C360,70 1080,70 1440,0 L1440,0 L0,0 Z" fill="#101014"/></svg>
 
 <!-- ================= 10. ROOM: DE UITNODIGING + FORMULIER ================= -->
 <section class="s-room" id="aanmelden">
-    <span class="stip" style="width:30px;height:30px;background:#ffd166;top:6%;right:7%;animation-delay:0.5s;"></span>
-    <span class="stip" style="width:22px;height:22px;background:#ff6b57;top:12%;left:9%;animation-delay:1.7s;"></span>
-    <span class="stip" style="width:26px;height:26px;background:#6c3ff2;bottom:30%;right:11%;animation-delay:2.6s;"></span>
+    <span class="stip" style="width:38px;height:38px;background:#ffd166;top:6%;right:7%;animation-delay:0.5s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#ff6b57;top:12%;left:9%;animation-delay:1.7s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#6c3ff2;bottom:30%;right:11%;animation-delay:2.6s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#0f5e5a;bottom:14%;left:7%;animation-delay:1s;"></span>
     <div class="inner">
         <span class="emo emo-stuiter">🎪</span>
         <h2 class="kantel reveal">Wat mag er ontstaan als jij jezelf eindelijk niet meer probeert te vangen?</h2>
@@ -662,7 +720,7 @@ body.popup-open { overflow: hidden; }
         <p class="reveal">Wel een levend speelveld waarin jij creëert terwijl je spreekt. Waarin jouw perspectief zich live mag ontvouwen. Waarin mensen niet instappen omdat jij de perfecte pitch hebt, maar omdat ze voelen dat jij iets ziet wat zij zelf nog niet konden zien.</p>
         <div class="fotolijst reveal">
             <img src="sonja-speelveld.png" alt="Sonja op haar eigen speelveld">
-            <span class="sticker">mijn speelveld. binnenkort het jouwe ;-)</span>
+            <span class="sticker">samen creëren we een groter speelveld ;-)</span>
         </div>
         <p class="reveal">En misschien is dat wel de grootste verschuiving van allemaal.</p>
         <p class="reveal">Dat spreken, creëren, impact maken én een winstgevende business bouwen niet langer vier losse werelden zijn, maar één en dezelfde beweging.</p>
@@ -709,13 +767,24 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('.reveal').forEach(el => kijker.observe(el));
 }
 
+// versienummer: check in de console (F12) welke versie live staat
+console.log('Vanzelfsprekinar pagina versie 3');
+
 // popup: elke button opent het aanmeldformulier
+// via delegatie op document-niveau, zodat een klik op (of in) een button altijd aankomt
 const popup = document.getElementById('popup');
-function openPopup(e) { e.preventDefault(); popup.classList.add('open'); document.body.classList.add('popup-open'); }
 function sluitPopup() { popup.classList.remove('open'); document.body.classList.remove('popup-open'); }
-document.querySelectorAll('.knop').forEach(k => k.addEventListener('click', openPopup));
-document.querySelector('.popup-sluit').addEventListener('click', sluitPopup);
-popup.addEventListener('click', e => { if (e.target === popup) sluitPopup(); });
+document.addEventListener('click', function (e) {
+    const knop = e.target.closest ? e.target.closest('.knop') : null;
+    if (knop) {
+        e.preventDefault();
+        popup.classList.add('open');
+        document.body.classList.add('popup-open');
+        return;
+    }
+    if (e.target.closest && e.target.closest('.popup-sluit')) { sluitPopup(); return; }
+    if (e.target === popup) sluitPopup();
+});
 document.addEventListener('keydown', e => { if (e.key === 'Escape') sluitPopup(); });
 </script>
 
