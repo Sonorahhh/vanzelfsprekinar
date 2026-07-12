@@ -68,6 +68,9 @@ section { position: relative; overflow: hidden; }
 .s-oker     { background: #e9a63c; color: #57370a; }
 .s-oker h2, .s-oker .accent { color: #2f1d02; }
 
+.s-baars    { background: #e6007e; color: #ffe3f2; }
+.s-baars h2, .s-baars .accent { color: #fff; }
+
 .s-roze     { background: #ffd6e8; color: #8a2c5a; }
 .s-roze h2, .s-roze .accent { color: #5e123a; }
 
@@ -236,7 +239,7 @@ h2 {
 /* gekleurde lijst per sectie: kleur op kleur */
 .s-zand   .fotolijst img { border-color: #ff6b57; box-shadow: 14px 14px 0 rgba(107,79,42,0.28); }
 .s-koraal .fotolijst img { border-color: #ffd166; box-shadow: 14px 14px 0 rgba(42,9,4,0.3); }
-.s-inkt   .fotolijst img { border-color: #7fd8cf; box-shadow: 14px 14px 0 rgba(0,0,0,0.35); }
+.s-baars  .fotolijst img { border-color: #eaff00; box-shadow: 14px 14px 0 rgba(28,0,15,0.35); }
 .s-room   .fotolijst img { border-color: #6c3ff2; box-shadow: 14px 14px 0 rgba(29,26,58,0.22); }
 
 /* rond portret */
@@ -271,7 +274,7 @@ h2 {
     white-space: nowrap;
 }
 .s-koraal .sticker { background: #fdf8ef; color: #c2185b; }
-.s-inkt   .sticker { background: #ffd166; color: #2a1c00; }
+.s-baars  .sticker { background: #1d1a3a; color: #eaff00; }
 .s-room   .sticker { background: #ff6b57; color: #fff; }
 
 /* ---------- WAAROM-LIJST: ieder zijn eigen kleur ---------- */
@@ -287,12 +290,12 @@ h2 {
 .lijstje li:nth-child(even) { transform: rotate(0.5deg); }
 .lijstje li:hover { transform: rotate(0deg) scale(1.03); }
 
-.lijstje li:nth-child(1) { background: #fdf8ef; color: #3f2c12; border-left: 6px solid #ff6b57; }
-.lijstje li:nth-child(2) { background: #e7ddff; color: #2e1d52; border-left: 6px solid #6c3ff2; }
-.lijstje li:nth-child(3) { background: #ffd6e8; color: #5e123a; border-left: 6px solid #c2185b; }
-.lijstje li:nth-child(4) { background: #bfe8e2; color: #0b3f3c; border-left: 6px solid #0f5e5a; }
-.lijstje li:nth-child(5) { background: #ffe9c9; color: #57370a; border-left: 6px solid #b26a00; }
-.lijstje li:nth-child(6) { background: #1d1a3a; color: #cfc9f2; border-left: 6px solid #ffb84d; }
+.lijstje li {
+    background: #eaff00;
+    color: #1c1e00;
+    border-left: 6px solid #1d1a3a;
+    box-shadow: 0 0 16px rgba(234,255,0,0.45);
+}
 
 /* ---------- QUOTES: zwart-wit met neon, ze komen je zachtjes toe ---------- */
 
@@ -415,11 +418,13 @@ html.js .reveal.zichtbaar {
     padding: 20px;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .popup-achtergrond.open {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .popup-kaart {
@@ -616,14 +621,14 @@ body.popup-open { overflow: hidden; }
         <p class="klap reveal">Maar omdat ze zichzelf herkennen in de ruimte die jij hebt geopend.</p>
     </div>
 </section>
-<svg class="golf" style="background:#e9a63c;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C360,70 1080,70 1440,0 L1440,0 L0,0 Z" fill="#e7ddff"/></svg>
+<svg class="golf" style="background:#e6007e;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C360,70 1080,70 1440,0 L1440,0 L0,0 Z" fill="#e7ddff"/></svg>
 
 <!-- ================= 6. OKER: WAT JE ONTDEKT ================= -->
-<section class="s-oker">
-    <span class="stip" style="width:38px;height:38px;background:#fdf8ef;top:8%;left:6%;animation-delay:0.5s;"></span>
-    <span class="stip" style="width:24px;height:24px;background:#ff6b57;top:24%;right:7%;animation-delay:1.7s;"></span>
-    <span class="stip" style="width:30px;height:30px;background:#6c3ff2;bottom:16%;left:10%;animation-delay:2.4s;"></span>
-    <span class="stip" style="width:18px;height:18px;background:#1d1a3a;bottom:32%;right:9%;animation-delay:1s;"></span>
+<section class="s-baars">
+    <span class="stip" style="width:38px;height:38px;background:#eaff00;top:8%;left:6%;animation-delay:0.5s;"></span>
+    <span class="stip" style="width:24px;height:24px;background:#fff;top:24%;right:7%;animation-delay:1.7s;"></span>
+    <span class="stip" style="width:30px;height:30px;background:#1d1a3a;bottom:16%;left:10%;animation-delay:2.4s;"></span>
+    <span class="stip" style="width:18px;height:18px;background:#eaff00;bottom:32%;right:9%;animation-delay:1s;"></span>
     <div class="inner">
         <span class="emo emo-puls">💡</span>
         <h2 class="kantel reveal">Tijdens mijn gratis Vanzelfsprekinar ontdek je onder andere:</h2>
@@ -635,9 +640,13 @@ body.popup-open { overflow: hidden; }
             <li class="reveal">Waarom mensen uiteindelijk niet instappen omdat jij goed verkoopt, maar omdat ze voelen dat jij al iets ziet wat zij zelf nog niet konden zien.</li>
             <li class="reveal">Hoe spreken, creëren en ondernemen weer één natuurlijke beweging kunnen worden.</li>
         </ul>
+        <div class="fotolijst rechtsom reveal">
+            <img src="sonja-laptop.png" alt="Sonja met haar verlengstuk">
+            <span class="sticker">ik + mijn verlengstuk ;-)</span>
+        </div>
     </div>
 </section>
-<svg class="golf" style="background:#ffd6e8;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C480,70 960,70 1440,0 L1440,0 L0,0 Z" fill="#e9a63c"/></svg>
+<svg class="golf" style="background:#ffd6e8;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C480,70 960,70 1440,0 L1440,0 L0,0 Z" fill="#e6007e"/></svg>
 
 <!-- ================= 7. ROZE: VOOR WIE ================= -->
 <section class="s-roze">
@@ -672,11 +681,8 @@ body.popup-open { overflow: hidden; }
     <div class="inner centreer">
         <span class="emo emo-tol">🤖</span>
         <h2 class="kantel reveal">Over mij</h2>
+        <img class="portret reveal" src="sonja-portret.jpeg" alt="Sonja Leonie Brouwer">
         <p class="klap reveal">Ik ben Sonja Leonie Brouwer.</p>
-        <div class="fotolijst reveal">
-            <img src="sonja-laptop.png" alt="Sonja Leonie Brouwer">
-            <span class="sticker">ik + mijn verlengstuk ;-)</span>
-        </div>
         <p class="reveal" style="text-align:left;">De afgelopen acht jaar hielp ik honderden ondernemers, experts en sprekers om woorden te geven aan iets wat veel groter was dan een presentatie alleen. Ik ontwierp TEDx-waardige talks, begeleidde ondernemers naar webinars die echt iets in beweging zetten en hielp mensen niet alleen beter spreken, maar vooral steviger staan in hun eigen perspectief.</p>
         <p class="reveal" style="text-align:left;">Vandaag combineer ik die ervaring met AI.</p>
         <p class="reveal" style="text-align:left;">Niet omdat AI de antwoorden heeft.</p>
@@ -768,7 +774,24 @@ if ('IntersectionObserver' in window) {
 }
 
 // versienummer: check in de console (F12) welke versie live staat
-console.log('Vanzelfsprekinar pagina versie 3');
+console.log('Vanzelfsprekinar pagina versie 5');
+
+// het WebinarGeek-formulier wordt pas geladen bij de eerste klik op een button
+// (als het direct bij paginaload laadt, legt het zich onzichtbaar over de pagina heen en blokkeert het de buttons)
+let embedGeladen = false;
+function laadEmbed() {
+    if (embedGeladen) return;
+    embedGeladen = true;
+    (function(w,d,stn,sa,gn,se,fse){w[gn]=w[gn]||function(){(w[gn].q = w[gn].q||[]).push(arguments)};
+    se=d.createElement(stn);fse=d.getElementsByTagName(stn)[0];se.id=gn;se.async=1;
+    se.src=sa+"?t="+new Date().toISOString().slice(0, -9);fse.parentNode.insertBefore(se, fse);
+    })(window, document, "script", "https://malong.webinargeek.com/malong.embed.js", "mw_wY0PhBcm8Bd");
+    mw_wY0PhBcm8Bd("init", {
+        project: "registration",
+        identifier: "499e8ec8-c8a2-42b9-8693-85335c75d16c",
+        shape: "inline"
+    });
+}
 
 // popup: elke button opent het aanmeldformulier
 // via delegatie op document-niveau, zodat een klik op (of in) een button altijd aankomt
@@ -778,6 +801,7 @@ document.addEventListener('click', function (e) {
     const knop = e.target.closest ? e.target.closest('.knop') : null;
     if (knop) {
         e.preventDefault();
+        laadEmbed();
         popup.classList.add('open');
         document.body.classList.add('popup-open');
         return;
@@ -786,18 +810,6 @@ document.addEventListener('click', function (e) {
     if (e.target === popup) sluitPopup();
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') sluitPopup(); });
-</script>
-
-<script>
-(function(w,d,stn,sa,gn,se,fse){w[gn]=w[gn]||function(){(w[gn].q = w[gn].q||[]).push(arguments)};
-se=d.createElement(stn);fse=d.getElementsByTagName(stn)[0];se.id=gn;se.async=1;
-se.src=sa+"?t="+new Date().toISOString().slice(0, -9);fse.parentNode.insertBefore(se, fse);
-})(window, document, "script", "https://malong.webinargeek.com/malong.embed.js", "mw_wY0PhBcm8Bd");
-mw_wY0PhBcm8Bd("init", {
-    project: "registration",
-    identifier: "499e8ec8-c8a2-42b9-8693-85335c75d16c",
-    shape: "inline"
-});
 </script>
 
 </body>
