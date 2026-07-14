@@ -50,43 +50,37 @@ section { position: relative; overflow: hidden; }
 
 /* ---------- SECTIEKLEUREN: kleur op kleur, elke wereld zijn eigen tint ---------- */
 
-.s-nacht    { background: #1d1a3a; color: #cfc9f2; }
+/* elke sectie is nu een echte gradiënt (licht bovenin, dieper van tint onderin)
+   zodat het geheel vloeiender aanvoelt in plaats van vlakke kleurblokken */
+.s-nacht    { background: radial-gradient(circle 380px at 50% 22%, rgba(255,255,255,0.22), transparent 72%), linear-gradient(180deg, #1d1a3a, #2a1f4d); background-repeat: no-repeat; color: #cfc9f2; }
 .s-nacht h1, .s-nacht h2, .s-nacht .accent { color: #f5f2ff; }
 
-.s-zand     { background: #f6ead7; color: #6b4f2a; }
+.s-zand     { background: linear-gradient(180deg, #f6ead7, #efd9b8); background-repeat: no-repeat; color: #6b4f2a; }
 .s-zand h2, .s-zand .accent { color: #3f2c12; }
 
-.s-koraal   { background: #ff6b57; color: #45100a; }
+.s-koraal   { background: radial-gradient(circle 380px at 50% 22%, rgba(255,255,255,0.28), transparent 72%), linear-gradient(180deg, #ff6b57, #e14a3d); background-repeat: no-repeat; color: #45100a; }
 .s-koraal h2, .s-koraal .accent { color: #2a0904; }
 
-.s-zee      { background: #0f5e5a; color: #bfe8e2; }
+.s-zee      { background: radial-gradient(circle 380px at 50% 22%, rgba(255,255,255,0.2), transparent 72%), linear-gradient(180deg, #0f5e5a, #0a4744); background-repeat: no-repeat; color: #bfe8e2; }
 .s-zee h2, .s-zee .accent { color: #eafffb; }
 
-.s-lila     { background: #e7ddff; color: #4a3670; }
+.s-lila     { background: linear-gradient(180deg, #e7ddff, #d5c4fb); background-repeat: no-repeat; color: #4a3670; }
 .s-lila h2, .s-lila .accent { color: #2e1d52; }
 
-.s-oker     { background: #e9a63c; color: #57370a; }
+.s-oker     { background: radial-gradient(circle 380px at 50% 22%, rgba(255,255,255,0.3), transparent 72%), linear-gradient(180deg, #e9a63c, #d38f24); background-repeat: no-repeat; color: #57370a; }
 .s-oker h2, .s-oker .accent { color: #2f1d02; }
 
-.s-baars    { background: #e6007e; color: #ffe3f2; }
+.s-baars    { background: radial-gradient(circle 380px at 50% 22%, rgba(255,255,255,0.4), transparent 72%), linear-gradient(180deg, #e6007e, #b8005f); background-repeat: no-repeat; color: #ffe3f2; }
 .s-baars h2, .s-baars .accent { color: #fff; }
 
-.s-roze     { background: #ffd6e8; color: #8a2c5a; }
+.s-roze     { background: linear-gradient(180deg, #ffd6e8, #ffc0dc); background-repeat: no-repeat; color: #8a2c5a; }
 .s-roze h2, .s-roze .accent { color: #5e123a; }
 
-.s-inkt     { background: #22333d; color: #b9d2d6; }
+.s-inkt     { background: radial-gradient(circle 380px at 50% 22%, rgba(255,255,255,0.18), transparent 72%), linear-gradient(180deg, #22333d, #17252d); background-repeat: no-repeat; color: #b9d2d6; }
 .s-inkt h2, .s-inkt .accent { color: #f0fbfd; }
 
-.s-room     { background: #fdf8ef; color: #4c4636; }
-.s-room h2, .s-room .accent { color: #211c0e; }
-
-/* nieuwe secties voor deze ronde: overgang & AI */
-.s-schaduw  { background: #16323f; color: #bcd9df; }
-.s-schaduw h2, .s-schaduw .accent { color: #eafcff; }
-
-.s-violet   { background: #1a1030; color: #d9c9ff; }
-.s-violet h2, .s-violet .accent { color: #f3ecff; }
-.s-violet .neon { color: #00f0ff; }
+.s-room     { background: linear-gradient(180deg, #f7d3e3, #f0bcd2); background-repeat: no-repeat; color: #6b2f55; }
+.s-room h2, .s-room .accent { color: #46132f; }
 
 /* ---------- TYPOGRAFIE ---------- */
 
@@ -131,27 +125,18 @@ h2 {
     font-size: clamp(20px, 2.8vw, 24px);
 }
 
-.accent { font-weight: 700; }
-
-/* grote, schuine, vette uitroepen — voor de momenten die eruit mogen springen */
-.megaklap {
-    display: block;
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: clamp(32px, 5.5vw, 52px);
-    line-height: 1.1;
-    transform: rotate(-2deg);
-    margin: 20px 0;
-}
-.megaklap.rechtsom { transform: rotate(2deg); }
-
-.stempel {
+/* subtiele speelsheid: net iets groter en schuiner dan .klap, spaarzaam gebruikt */
+.uitspringer {
     display: inline-block;
     font-family: 'Fraunces', serif;
     font-weight: 900;
-    font-style: italic;
-    transform: rotate(-3deg);
+    font-size: clamp(25px, 3.6vw, 32px);
+    line-height: 1.2;
+    transform: rotate(-1.5deg);
 }
+.uitspringer.rechtsom { transform: rotate(1.5deg); }
+
+.accent { font-weight: 700; }
 
 /* ---------- GROTE BEWEGENDE EMOJI ---------- */
 
@@ -240,12 +225,7 @@ h2 {
 .s-zee    .knop { background: #ffd166; color: #4a3200; }
 .s-lila   .knop { background: #6c3ff2; color: #fff; }
 .s-roze   .knop { background: #c2185b; color: #fff; }
-.s-room   .knop {
-    background: #39ff14;
-    color: #0b2a00;
-    box-shadow: 0 8px 0 rgba(11,42,0,0.3), 0 0 26px rgba(57,255,20,0.55);
-}
-.s-room   .knop:hover { box-shadow: 0 12px 0 rgba(11,42,0,0.35), 0 0 36px rgba(57,255,20,0.75); }
+.s-room   .knop { background: #eaff00; color: #1d1a3a; }
 
 /* ---------- FOTO'S IN HUISSTIJL ---------- */
 
@@ -270,12 +250,10 @@ h2 {
 }
 
 /* gekleurde lijst per sectie: kleur op kleur */
-.s-zand    .fotolijst img { border-color: #ff6b57; box-shadow: 14px 14px 0 rgba(107,79,42,0.28); }
-.s-koraal  .fotolijst img { border-color: #ffd166; box-shadow: 14px 14px 0 rgba(42,9,4,0.3); }
-.s-baars   .fotolijst img { border-color: #eaff00; box-shadow: 14px 14px 0 rgba(28,0,15,0.35); }
-.s-room    .fotolijst img { border-color: #39ff14; box-shadow: 14px 14px 0 rgba(29,26,58,0.22), 0 0 22px rgba(57,255,20,0.35); }
-.s-schaduw .fotolijst img { border-color: #ffd166; box-shadow: 14px 14px 0 rgba(0,0,0,0.4); }
-.s-violet  .fotolijst img { border-color: #00f0ff; box-shadow: 14px 14px 0 rgba(0,0,0,0.5), 0 0 24px rgba(0,240,255,0.4); }
+.s-zand   .fotolijst img { border-color: #ff6b57; box-shadow: 14px 14px 0 rgba(107,79,42,0.28); }
+.s-koraal .fotolijst img { border-color: #ffd166; box-shadow: 14px 14px 0 rgba(42,9,4,0.3); }
+.s-baars  .fotolijst img { border-color: #eaff00; box-shadow: 14px 14px 0 rgba(28,0,15,0.35); }
+.s-room   .fotolijst img { border-color: #6c3ff2; box-shadow: 14px 14px 0 rgba(29,26,58,0.22); }
 
 /* rond portret */
 .portret {
@@ -308,13 +286,11 @@ h2 {
     animation: zweef 4s ease-in-out infinite;
     white-space: nowrap;
 }
-.s-koraal  .sticker { background: #fdf8ef; color: #c2185b; }
-.s-baars   .sticker { background: #1d1a3a; color: #eaff00; }
-.s-room    .sticker { background: #39ff14; color: #0b2a00; box-shadow: 5px 5px 0 rgba(11,42,0,0.25), 0 0 18px rgba(57,255,20,0.5); }
-.s-schaduw .sticker { background: #ffd166; color: #16323f; }
-.s-violet  .sticker { background: #00f0ff; color: #1a1030; }
+.s-koraal .sticker { background: #fdf8ef; color: #c2185b; }
+.s-baars  .sticker { background: #1d1a3a; color: #eaff00; }
+.s-room   .sticker { background: #ff6b57; color: #fff; }
 
-/* ---------- WAAROM-LIJST: neon blokjes ---------- */
+/* ---------- WAAROM-LIJST: ieder zijn eigen kleur ---------- */
 
 .lijstje { list-style: none; margin: 30px 0; }
 .lijstje li {
@@ -323,17 +299,30 @@ h2 {
     border-radius: 16px;
     transform: rotate(-0.4deg);
     transition: transform 0.3s ease;
+}
+.lijstje li:nth-child(even) { transform: rotate(0.5deg); }
+.lijstje li:hover { transform: rotate(0deg) scale(1.03); }
+
+.lijstje li {
     background: #eaff00;
     color: #1c1e00;
     border-left: 6px solid #1d1a3a;
     box-shadow: 0 0 16px rgba(234,255,0,0.45);
 }
-.lijstje li:nth-child(even) { transform: rotate(0.5deg); }
-.lijstje li:hover { transform: rotate(0deg) scale(1.03); }
+
+.logo-over-mij {
+    display: block;
+    width: 145px;
+    max-width: 45%;
+    height: auto;
+    margin: 34px auto 0;
+    transform: rotate(-5deg);
+    opacity: 0.95;
+}
 
 /* ---------- QUOTES: zwart-wit met neon, ze komen je zachtjes toe ---------- */
 
-.s-zwart { background: #101014; color: #fff; }
+.s-zwart { background: radial-gradient(circle 380px at 50% 22%, rgba(255,255,255,0.18), transparent 72%), linear-gradient(180deg, #101014, #050506); background-repeat: no-repeat; color: #fff; }
 .s-zwart h2, .s-zwart .accent { color: #fff; }
 
 @keyframes quote-adem {
@@ -408,16 +397,7 @@ h2 {
     50%      { opacity: 0.6;  transform: scale(1.18); }
 }
 
-.s-nacht::before {
-    content: "";
-    position: absolute;
-    top: -120px; left: 50%;
-    width: 560px; height: 560px;
-    margin-left: -280px;
-    background: radial-gradient(circle, #6c3ff2 0%, transparent 65%);
-    animation: gloei 6s ease-in-out infinite;
-    pointer-events: none;
-}
+/* de gloed zit nu in de achtergrond van elke .s-XXX klasse, geen los element meer nodig */
 
 /* ---------- SCROLL REVEAL (alleen actief als JS draait) ---------- */
 
@@ -433,30 +413,11 @@ html.js .reveal.zichtbaar {
 
 /* ---------- OVERIG ---------- */
 
-.golf { display: block; width: 100%; height: 70px; margin-top: -1px; position: relative; z-index: 2; pointer-events: none; }
-
-/* ---------- LOGO ---------- */
-
-.logo {
-    display: block;
-    width: 230px;
-    max-width: 60%;
-    margin: 40px auto 0;
-}
-
-.voet {
-    background: #1d1a3a;
-    text-align: center;
-    padding: 46px 20px 50px;
-}
-.voet img {
-    width: 210px;
-    max-width: 60%;
-}
+.golf { display: block; width: 100%; height: 120px; margin-top: -1px; position: relative; z-index: 2; pointer-events: none; }
 
 .centreer { text-align: center; }
 
-.ademruimte { height: 26px; }
+.ademruimte { height: 10px; }
 
 /* ---------- POPUP MET AANMELDFORMULIER ---------- */
 
@@ -562,287 +523,199 @@ body.popup-open { overflow: hidden; }
         <p class="groot">Creëer een speelveld waarin jouw visie blijft stromen en mensen als vanzelf met je meebewegen.</p>
         <div class="ademruimte"></div>
         <p>Voor visionairs, changemakers, multipassionates en neurospicy ondernemers die voelen dat hun perspectief sneller groeit dan iedere strategie waarin ze het proberen te vangen.</p>
-        <p class="klap">Misschien ben je helemaal niet toe aan nóg een betere strategie.</p>
-        <p class="groot">Misschien ben je toe aan een speelveld dat eindelijk net zo beweeglijk mag zijn als jij.</p>
-        <span class="megaklap">Want...</span>
-        <p>Het probleem is waarschijnlijk nooit jouw brein geweest.</p>
-        <p class="klap">Het probleem is dat je jezelf steeds hebt geprobeerd passend te maken voor systemen die allang te klein zijn geworden.</p>
         <div class="knop-wrap">
             <a class="knop" href="#aanmelden">JA, MEEMAKEN EN ERBIJ ZIJN!</a>
             <span class="knop-sub">Live. Geen script. Wel jij.</span>
         </div>
     </div>
 </section>
-<svg class="golf" style="background:#ff6b57;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C360,70 1080,70 1440,0 L1440,0 L0,0 Z" fill="#1d1a3a"/></svg>
+<svg class="golf" style="background:#f6ead7;" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,0 C360,120 1080,120 1440,0 L1440,0 L0,0 Z" fill="#2a1f4d"/></svg>
 
-<!-- ================= 2. KORAAL: ZWEMBAD-FOTO — TE KLEIN SPEELVELD ================= -->
-<section class="s-koraal">
-    <span class="stip" style="width:42px;height:42px;background:#ffd166;top:10%;right:8%;animation-delay:0.4s;"></span>
-    <span class="stip" style="width:27px;height:27px;background:#fdf8ef;bottom:12%;left:6%;animation-delay:1.6s;"></span>
-    <span class="stip" style="width:33px;height:33px;background:#1d1a3a;top:38%;left:5%;animation-delay:2.5s;"></span>
-    <span class="stip" style="width:20px;height:20px;background:#ffd6e8;bottom:34%;right:6%;animation-delay:0.9s;"></span>
+<!-- ================= 2. ZAND: DE HERKENNING ================= -->
+<section class="s-zand">
+    <span class="stip" style="width:42px;height:42px;background:#ff6b57;top:12%;left:6%;animation-delay:0.3s;"></span>
+    <span class="stip" style="width:27px;height:27px;background:#e9a63c;top:20%;right:9%;animation-delay:1.2s;"></span>
+    <span class="stip" style="width:33px;height:33px;background:#6c3ff2;bottom:18%;left:11%;animation-delay:2.2s;"></span>
+    <span class="stip" style="width:20px;height:20px;background:#0f5e5a;bottom:26%;right:7%;animation-delay:0.8s;"></span>
     <div class="inner">
-        <span class="emo emo-stuiter">😉</span>
-        <p class="reveal">Je probeert niet te groeien.</p>
-        <p class="klap reveal">Je probeert ruimte te maken voor wie je allang bent.</p>
-        <span class="megaklap reveal">Je bent niet "te veel".</span>
-        <p class="klap reveal">Je bent misschien alleen een speelveld ontgroeid.</p>
+        <span class="emo emo-stuiter">🧠</span>
+        <h2 class="kantel reveal">Misschien ben je niet op zoek naar een betere strategie.</h2>
+        <p class="groot reveal">Maar naar een speelveld dat eindelijk net zo beweeglijk mag zijn als jouw brein.</p>
+        <div class="ademruimte"></div>
+        <p class="klap reveal">Het probleem is nooit jouw brein geweest.</p>
+        <p class="reveal">Het probleem is dat je steeds hebt geprobeerd jouw beweeglijke brein te laten functioneren in statische systemen.</p>
         <div class="fotolijst reveal">
-            <img src="img/sonja-zwembadje.png" alt="Sonja in een zwembadje dat duidelijk te klein is">
-            <span class="sticker">nooit te veel geweest ;-)</span>
+            <img src="sonja-cafe.png" alt="Sonja, net iets te groot voor het systeem">
+            <span class="sticker">iets te groot voor het systeem ;-)</span>
         </div>
-        <p class="reveal">Niet omdat je verandert.</p>
-        <p class="klap reveal">Maar omdat er steeds meer van jou zichtbaar wordt.</p>
-        <p class="groot centreer reveal">Herkenbaar? 😉</p>
     </div>
 </section>
-<svg class="golf" style="background:#f6ead7;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C480,70 960,70 1440,0 L1440,0 L0,0 Z" fill="#ff6b57"/></svg>
+<svg class="golf" style="background:#ff6b57;" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,0 C480,120 960,120 1440,0 L1440,0 L0,0 Z" fill="#efd9b8"/></svg>
 
-<!-- ================= 3. ZAND: JIJ OPENT PERSPECTIEF ================= -->
-<section class="s-zand">
-    <span class="stip" style="width:46px;height:46px;background:#ff6b57;top:12%;left:6%;animation-delay:0.3s;"></span>
-    <span class="stip" style="width:30px;height:30px;background:#e9a63c;top:20%;right:9%;animation-delay:1.2s;"></span>
-    <span class="stip" style="width:36px;height:36px;background:#6c3ff2;bottom:18%;left:11%;animation-delay:2.2s;"></span>
-    <span class="stip" style="width:22px;height:22px;background:#0f5e5a;bottom:26%;right:7%;animation-delay:0.8s;"></span>
+<!-- ================= 3. KORAAL: DE CREATORS ================= -->
+<section class="s-koraal">
+    <span class="stip" style="width:47px;height:47px;background:#ffd166;top:10%;right:8%;animation-delay:0.4s;"></span>
+    <span class="stip" style="width:31px;height:31px;background:#fdf8ef;bottom:12%;left:6%;animation-delay:1.6s;"></span>
+    <span class="stip" style="width:37px;height:37px;background:#1d1a3a;top:38%;left:5%;animation-delay:2.5s;"></span>
+    <span class="stip" style="width:23px;height:23px;background:#ffd6e8;bottom:34%;right:6%;animation-delay:0.9s;"></span>
     <div class="inner">
         <span class="emo emo-zwaai">🎨</span>
-        <h2 class="kantel reveal">Jij deelt niet alleen kennis.</h2>
-        <p class="groot reveal">Jij laat mensen iets zien wat zij zelf nog niet kunnen zien.</p>
-        <div class="ademruimte"></div>
-        <p class="reveal">Wanneer jij spreekt, schrijft of creëert, gebeurt er iets.</p>
-        <p class="klap reveal">Mensen gaan anders naar zichzelf kijken.</p>
-        <p class="reveal">Niet omdat jij slimmer bent.</p>
-        <p class="reveal">Niet omdat jij meer weet.</p>
-        <p class="reveal">Maar omdat jij woorden geeft aan iets wat zij diep van binnen al voelden, maar zelf nog niet konden zien.</p>
-        <p class="reveal">Je opent geen funnel.</p>
-        <span class="megaklap reveal">Je opent perspectief.</span>
-        <div class="ademruimte"></div>
+        <h2 class="kantel reveal">Jij deelt niet alleen kennis. Jij zet iets in beweging.</h2>
+        <p class="reveal">Jij bent niet hier om nog een paar tips aan het internet toe te voegen.</p>
+        <p class="reveal">Wanneer jij spreekt, schrijft of creëert, gebeurt er iets anders. Mensen gaan zichzelf en de wereld anders zien.</p>
+        <p class="reveal">Je stampt niet alleen producten, diensten, programma's of zelfs een complete business uit de grond.</p>
+        <p class="klap reveal">Je opent nieuwe perspectieven. Je geeft woorden aan iets wat anderen al voelen, maar nog niet kunnen benoemen.</p>
         <p class="reveal">En precies daarom loop je vast zodra je jouw visie probeert te proppen in een niche, een website, een funnel of een standaard webinar.</p>
         <p class="reveal">Niet omdat je geen focus hebt.</p>
-        <p class="reveal">Maar omdat jouw perspectief zich sneller ontwikkelt dan de systemen waarin je het probeert vast te zetten.</p>
-        <p class="reveal">Terwijl jij een landingspagina afmaakt...</p>
-        <p class="klap reveal">is jouw visie alweer gegroeid.</p>
-        <p class="reveal">Terwijl jij een post schrijft...</p>
-        <p class="klap reveal">zie je alweer een diepere laag.</p>
-        <p class="reveal">Terwijl jij een aanbod probeert uit te leggen...</p>
-        <p class="klap reveal">is er alweer iets nieuws geboren.</p>
+        <p class="reveal">Maar omdat jouw brein voortdurend nieuwe verbanden ziet. Terwijl jij nog bezig bent een landingspagina af te maken, is jouw perspectief alweer verder gegroeid. Terwijl je een post schrijft, zie je ineens een diepere laag. Terwijl je jouw aanbod probeert uit te leggen, ontstaat er alweer iets nieuws.</p>
         <div class="ademruimte"></div>
-        <p class="reveal">Je springt niet van hot naar her.</p>
-        <p class="klap reveal">Je visie blijft zich ontvouwen.</p>
-        <p class="reveal">En bijna alles wat je maakt voelt daardoor na een tijdje weer...</p>
-        <span class="megaklap rechtsom reveal">net iets te klein.</span>
-        <p class="reveal">Niet omdat het niet goed was.</p>
-        <p class="klap reveal">Maar omdat jij alweer gegroeid bent.</p>
-    </div>
-</section>
-<svg class="golf" style="background:#16323f;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C300,70 1140,70 1440,0 L1440,0 L0,0 Z" fill="#f6ead7"/></svg>
-
-<!-- ================= 4. SCHADUW (NIEUW): DE OVERGANG NAAR SPREKEN ================= -->
-<section class="s-schaduw">
-    <span class="stip" style="width:50px;height:50px;background:#ffd166;top:9%;left:7%;animation-delay:0.6s;"></span>
-    <span class="stip" style="width:33px;height:33px;background:#7fd8cf;top:30%;right:8%;animation-delay:1.8s;"></span>
-    <span class="stip" style="width:39px;height:39px;background:#ff6b57;bottom:20%;left:9%;animation-delay:2.9s;"></span>
-    <span class="stip" style="width:24px;height:24px;background:#eafffb;bottom:38%;right:5%;animation-delay:1.1s;"></span>
-    <div class="inner">
-        <span class="emo emo-stuiter">🔍</span>
-        <p class="groot reveal">Herkenbaar? 😉</p>
-        <p class="klap reveal">Misschien ben je jezelf al jaren kleiner aan het maken zodat je business nog klopt.</p>
-        <div class="fotolijst reveal">
-            <img src="img/sonja-cafe.png" alt="Sonja, op zoek naar de juiste woorden">
-            <span class="sticker">op zoek naar de juiste woorden ;-)</span>
+        <p class="klap reveal">Je springt niet steeds van hot naar her. Jouw visie blijft zich ontvouwen.</p>
+        <p class="reveal">Je probeert iets vast te zetten dat van nature wil bewegen.</p>
+        <p class="reveal">En dus voelt bijna alles wat je maakt op een gegeven moment alweer te klein.</p>
+        <p class="reveal">Niet omdat het niet goed is.</p>
+        <p class="klap reveal">Maar omdat jij alweer verder bent.</p>
+        <div class="fotolijst rechtsom reveal">
+            <img src="sonja-zwembadje.png" alt="Sonja in een zwembadje dat duidelijk te klein is">
+            <span class="sticker">herkenbaar? net iets te klein ;-)</span>
         </div>
-        <div class="ademruimte"></div>
-        <p class="reveal">En toen dacht je waarschijnlijk:</p>
-        <p class="klap reveal">"Ik moet gewoon beter leren uitleggen wat ik doe."</p>
-        <p class="reveal">Dus volgde je trainingen.<br>Strategieën.<br>Funnels.<br>Scripts.<br>Webinars.</p>
-        <p class="reveal">En ergens onderweg...</p>
-        <span class="megaklap reveal">raakte je precies kwijt wat mensen oorspronkelijk zo aantrok.</span>
-        <p class="klap reveal">Jouw beweging.</p>
     </div>
 </section>
-<svg class="golf" style="background:#0f5e5a;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C420,70 1020,70 1440,0 L1440,0 L0,0 Z" fill="#16323f"/></svg>
+<svg class="golf" style="background:#0f5e5a;" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,0 C300,120 1140,120 1440,0 L1440,0 L0,0 Z" fill="#e14a3d"/></svg>
 
-<!-- ================= 5. ZEE: SPREKEN ALS ONTDEKKEN ================= -->
+<!-- ================= 4. ZEE: SPREKEN ALS CREATIE ================= -->
 <section class="s-zee">
-    <span class="stip" style="width:55px;height:55px;background:#ffd166;top:9%;left:7%;animation-delay:0.6s;"></span>
-    <span class="stip" style="width:36px;height:36px;background:#7fd8cf;top:30%;right:8%;animation-delay:1.8s;"></span>
-    <span class="stip" style="width:43px;height:43px;background:#ff6b57;bottom:20%;left:9%;animation-delay:2.9s;"></span>
+    <span class="stip" style="width:52px;height:52px;background:#ffd166;top:9%;left:7%;animation-delay:0.6s;"></span>
+    <span class="stip" style="width:35px;height:35px;background:#7fd8cf;top:30%;right:8%;animation-delay:1.8s;"></span>
+    <span class="stip" style="width:41px;height:41px;background:#ff6b57;bottom:20%;left:9%;animation-delay:2.9s;"></span>
     <span class="stip" style="width:26px;height:26px;background:#eafffb;bottom:38%;right:5%;animation-delay:1.1s;"></span>
     <div class="inner">
         <span class="emo emo-zwaai">🎤</span>
-        <p class="reveal">Misschien hou jij helemaal niet van spreken.</p>
-        <p class="klap reveal">Misschien hou jij van ontdekken.</p>
-        <p class="reveal">En is spreken simpelweg de plek waar jij jezelf hardop verder ontdekt.</p>
-        <div class="ademruimte"></div>
-        <p class="reveal">Terwijl jij spreekt...</p>
-        <p class="reveal">ontstaan nieuwe woorden.</p>
-        <p class="reveal">Nieuwe verbanden.</p>
-        <p class="reveal">Nieuwe inzichten.</p>
-        <p class="klap reveal">Soms zelfs nieuwe delen van jouw eigen visie.</p>
-        <span class="megaklap reveal">Alsof je jezelf live hoort groeien.</span>
-        <div class="ademruimte"></div>
+        <h2 class="kantel reveal">Waarom spreken misschien wel jouw meest natuurlijke manier van creëren is</h2>
+        <p class="reveal">Hoe spannend je het ook vindt.</p>
+        <span class="uitspringer reveal">Waarom?</span>
+        <p class="reveal">Omdat spreken misschien wel de enige vorm van creëren is die zich live met jou meebeweegt.</p>
+        <p class="reveal">Terwijl jij spreekt, ontstaan er nieuwe woorden. Nieuwe inzichten. Soms zelfs een compleet nieuw verhaal, in een taal die pas ontstaat terwijl de woorden je mond uitstromen. Niet alleen bij jouw publiek, maar ook bij jouzelf. Alsof je jezelf hardop verder ontdekt. Alsof jouw perspectief zich ter plekke verder ontvouwt.</p>
         <p class="reveal">En precies dát proberen de meeste webinarstrategieën eruit te halen.</p>
-        <p class="reveal">Ze geven je een script.<br>Een structuur.<br>Een volgorde.<br>Een perfecte pitch.</p>
+        <p class="reveal">Ze leren je een script.<br>Een volgorde.<br>Schaarste.<br>Urgentie.<br>Het perfecte bruggetje naar je aanbod.</p>
         <p class="reveal">En natuurlijk werkt dat soms.</p>
-        <p class="klap reveal">Maar...</p>
-        <p class="groot reveal">voelt het ook als jóu?</p>
-        <p class="reveal">Of voelt het alsof je meespeelt in een toneelstuk dat iemand anders heeft geschreven?</p>
+        <p class="klap reveal">Maar voel eens eerlijk...</p>
+        <p class="groot reveal">Voelt het ook als jóu?</p>
+        <p class="reveal">Of voelt het alsof je een rol speelt in een toneelstuk dat iemand anders heeft geschreven?</p>
         <div class="knop-wrap">
             <a class="knop" href="#aanmelden">HÈHÈ. EINDELIJK IETS VOOR MIJN BREIN</a>
-            <span class="knop-sub">Reserveer je plek bij de gratis Vanzelfsprekinar</span>
+            <span class="knop-sub">Reserveer je plek bij mijn gratis Vanzelfsprekinar</span>
         </div>
     </div>
 </section>
-<svg class="golf" style="background:#e7ddff;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C360,70 1080,70 1440,0 L1440,0 L0,0 Z" fill="#0f5e5a"/></svg>
+<svg class="golf" style="background:#e7ddff;" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,0 C420,120 1020,120 1440,0 L1440,0 L0,0 Z" fill="#0a4744"/></svg>
 
-<!-- ================= 6. LILA: HET VERLANGEN ================= -->
+<!-- ================= 5. LILA: HET VERLANGEN ================= -->
 <section class="s-lila">
-    <span class="stip" style="width:60px;height:60px;background:#6c3ff2;top:12%;right:9%;animation-delay:0.8s;"></span>
-    <span class="stip" style="width:40px;height:40px;background:#ff6b57;bottom:14%;left:8%;animation-delay:1.9s;"></span>
-    <span class="stip" style="width:47px;height:47px;background:#ffd166;top:36%;left:5%;animation-delay:2.7s;"></span>
+    <span class="stip" style="width:57px;height:57px;background:#6c3ff2;top:12%;right:9%;animation-delay:0.8s;"></span>
+    <span class="stip" style="width:39px;height:39px;background:#ff6b57;bottom:14%;left:8%;animation-delay:1.9s;"></span>
+    <span class="stip" style="width:45px;height:45px;background:#ffd166;top:36%;left:5%;animation-delay:2.7s;"></span>
     <span class="stip" style="width:29px;height:29px;background:#1d1a3a;bottom:36%;right:6%;animation-delay:1.3s;"></span>
     <div class="inner">
         <span class="emo emo-stuiter">👀</span>
-        <p class="reveal">Jouw doelgroep verlangt niet naar nóg een perfect webinar.</p>
-        <p class="klap reveal">Ze verlangen naar iemand...</p>
-        <p class="reveal">die iets ziet wat zij zelf nog niet kunnen zien.</p>
+        <h2 class="kantel reveal">Jouw doelgroep verlangt niet naar nóg een perfect webinar</h2>
+        <p class="klap reveal">Ze verlangen naar iemand die iets ziet wat zij zelf nog niet kunnen zien.</p>
+        <p class="reveal">Niet omdat jij ver boven hen staat.</p>
+        <p class="reveal">Integendeel.</p>
+        <p class="reveal">Je loopt misschien maar een paar stappen voor. Maar nét genoeg om een perspectief zichtbaar te maken dat voor hen nog verborgen is. En als jij dat perspectief durft te delen, gebeurt er iets bijzonders.</p>
         <div class="ademruimte"></div>
-        <p class="reveal">Je hoeft daarvoor niet tien stappen voor te lopen.</p>
-        <p class="klap reveal">Soms zijn twee stappen genoeg.</p>
-        <p class="reveal">Want wanneer jij iets zichtbaar maakt...</p>
-        <span class="megaklap reveal">gebeurt er iets bijzonders.</span>
-        <p class="reveal">Je hoeft niet meer te overtuigen.<br>Niet harder te verkopen.<br>Niet slimmer te beïnvloeden.</p>
-        <p class="reveal">Je opent een speelveld waarin iemand zichzelf ineens ziet.</p>
+        <p class="reveal">Je hoeft niet meer te overtuigen.<br>Je hoeft niet meer te trekken.<br>Je hoeft geen psychologische trucjes toe te passen.</p>
+        <p class="reveal">Je creëert een speelveld waarin zij zelf voelen:</p>
+        <span class="uitspringer centreer reveal" style="display:block;">"Hier wil ik zijn."</span>
         <div class="ademruimte"></div>
-        <p class="klap reveal">En dát is waarom mensen instappen.</p>
-        <p class="reveal">Niet omdat jij zo goed verkoopt.</p>
-        <p class="reveal">Maar omdat jij al gelooft in iets...</p>
-        <p class="klap reveal">waar zij zelf nog geen woorden voor hadden.</p>
+        <p class="reveal">Niet omdat jij ze hebt overtuigd.</p>
+        <p class="klap reveal">Maar omdat ze zichzelf herkennen in de ruimte die jij hebt geopend.</p>
     </div>
 </section>
-<svg class="golf" style="background:#e6007e;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C420,70 1020,70 1440,0 L1440,0 L0,0 Z" fill="#e7ddff"/></svg>
+<svg class="golf" style="background:#e6007e;" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,0 C360,120 1080,120 1440,0 L1440,0 L0,0 Z" fill="#d5c4fb"/></svg>
 
-<!-- ================= 7. BAARS: WAT JE ONTDEKT ================= -->
+<!-- ================= 6. OKER: WAT JE ONTDEKT ================= -->
 <section class="s-baars">
-    <span class="stip" style="width:65px;height:65px;background:#eaff00;top:8%;left:6%;animation-delay:0.5s;"></span>
-    <span class="stip" style="width:44px;height:44px;background:#fff;top:24%;right:7%;animation-delay:1.7s;"></span>
-    <span class="stip" style="width:51px;height:51px;background:#1d1a3a;bottom:16%;left:10%;animation-delay:2.4s;"></span>
+    <span class="stip" style="width:62px;height:62px;background:#eaff00;top:8%;left:6%;animation-delay:0.5s;"></span>
+    <span class="stip" style="width:43px;height:43px;background:#fff;top:24%;right:7%;animation-delay:1.7s;"></span>
+    <span class="stip" style="width:49px;height:49px;background:#1d1a3a;bottom:16%;left:10%;animation-delay:2.4s;"></span>
     <span class="stip" style="width:32px;height:32px;background:#eaff00;bottom:32%;right:9%;animation-delay:1s;"></span>
     <div class="inner">
         <span class="emo emo-puls">💡</span>
         <h2 class="kantel reveal">Tijdens mijn gratis Vanzelfsprekinar ontdek je onder andere:</h2>
         <ul class="lijstje">
-            <li class="reveal">Waarom jouw grootste kracht waarschijnlijk nooit jouw kennis is geweest, maar jouw manier van kijken naar de wereld.</li>
-            <li class="reveal">Waarom jouw doelgroep uiteindelijk niet instapt omdat jij overtuigend bent, maar omdat jij iets ziet wat zij zelf nog niet kunnen zien.</li>
-            <li class="reveal">Waarom jij jezelf misschien jarenlang hebt geprobeerd te verkleinen zodat jouw business nog logisch bleef.</li>
-            <li class="reveal">Hoe je een Vanzelfsprekinar creëert waarin jij niet een script uitvoert, maar een speelveld opent waarin inzichten, interactie en transformatie vanzelf ontstaan.</li>
-            <li class="reveal">Waarom AI jouw creativiteit nooit vervangt, maar eindelijk een partner kan worden die net zo beweeglijk is als jouw brein.</li>
-            <li class="reveal">Hoe spreken, creëren, verkopen en ondernemen weer één natuurlijke beweging worden.</li>
+            <li class="reveal">Waarom jouw grootste kracht waarschijnlijk niet jouw kennis is, maar jouw manier van kijken naar de wereld.</li>
+            <li class="reveal">Waarom AI nooit jouw creativiteit vervangt, maar juist een verlengstuk van jouw brein kan worden, waardoor jouw visie en alles wat je in de wereld wilt zetten, 100x sneller tot leven komt. <span class="uitspringer" style="font-size:clamp(20px,2.6vw,26px);">Bam!</span></li>
+            <li class="reveal">Waarom zoveel visionairs zichzelf proberen te vangen in structuren en strategieën die allang niet meer met hen meebewegen (en waarschijnlijk nooit gedaan hebben ;-)</li>
+            <li class="reveal">Hoe je een Vanzelfsprekinar creëert waarin niet het script, maar jíj centraal staat: Jouw energie, charisma en perspectief openen een speelveld waarin inzichten, interactie en transformatie al (vanzelf)sprekend ontstaan :-)</li>
+            <li class="reveal">Waarom jouw doelgroep uiteindelijk niet instapt omdat jij goed verkoopt, maar omdat ze voelen dat jij al iets ziet waar zij zelf nog niet bij kunnen.</li>
+            <li class="reveal">Hoe spreken, creëren en ondernemen weer één natuurlijke beweging wordt.</li>
         </ul>
-    </div>
-</section>
-<svg class="golf" style="background:#1a1030;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C480,70 960,70 1440,0 L1440,0 L0,0 Z" fill="#e6007e"/></svg>
-
-<!-- ================= 8. VIOLET (NIEUW): AI ALS PARTNER ================= -->
-<section class="s-violet">
-    <span class="stip" style="width:70px;height:70px;background:#00f0ff;top:8%;left:6%;animation-delay:0.2s;"></span>
-    <span class="stip" style="width:56px;height:56px;background:#ff2ec4;top:22%;right:8%;animation-delay:1.6s;"></span>
-    <span class="stip" style="width:42px;height:42px;background:#39ff88;bottom:18%;left:9%;animation-delay:2.3s;"></span>
-    <span class="stip" style="width:32px;height:32px;background:#ffe600;bottom:34%;right:6%;animation-delay:0.9s;"></span>
-    <div class="inner">
-        <span class="emo emo-tol">🤖</span>
         <div class="fotolijst rechtsom reveal">
-            <img src="img/sonja-laptop.png" alt="Sonja met haar verlengstuk">
+            <img src="sonja-laptop.png" alt="Sonja met haar verlengstuk">
             <span class="sticker">ik + mijn verlengstuk ;-)</span>
         </div>
-        <p class="klap reveal">AI maakt jou niet groter.</p>
-        <span class="megaklap reveal">AI haalt de rem eraf.</span>
-        <p class="reveal">Jouw visie.<br>Jouw perspectief.<br>Jouw creativiteit.<br>Jouw verbanden.</p>
-        <p class="klap reveal">Ze waren er altijd al.</p>
-        <p class="groot reveal neon">Voor het eerst heb je een systeem dat met jouw brein mee kan bewegen.</p>
     </div>
 </section>
-<svg class="golf" style="background:#ffd6e8;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C300,70 1140,70 1440,0 L1440,0 L0,0 Z" fill="#1a1030"/></svg>
+<svg class="golf" style="background:#ffd6e8;" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,0 C480,120 960,120 1440,0 L1440,0 L0,0 Z" fill="#b8005f"/></svg>
 
-<!-- ================= 9. ROZE: VOOR WIE ================= -->
+<!-- ================= 7. ROZE: VOOR WIE ================= -->
 <section class="s-roze">
-    <span class="stip" style="width:75px;height:75px;background:#c2185b;top:14%;left:7%;animation-delay:0.3s;"></span>
-    <span class="stip" style="width:52px;height:52px;background:#6c3ff2;bottom:18%;right:9%;animation-delay:1.4s;"></span>
-    <span class="stip" style="width:60px;height:60px;background:#ffd166;top:40%;right:5%;animation-delay:2.6s;"></span>
-    <span class="stip" style="width:38px;height:38px;background:#0f5e5a;bottom:38%;left:5%;animation-delay:0.7s;"></span>
+    <span class="stip" style="width:67px;height:67px;background:#c2185b;top:14%;left:7%;animation-delay:0.3s;"></span>
+    <span class="stip" style="width:47px;height:47px;background:#6c3ff2;bottom:18%;right:9%;animation-delay:1.4s;"></span>
+    <span class="stip" style="width:53px;height:53px;background:#ffd166;top:40%;right:5%;animation-delay:2.6s;"></span>
+    <span class="stip" style="width:35px;height:35px;background:#0f5e5a;bottom:38%;left:5%;animation-delay:0.7s;"></span>
     <div class="inner">
         <span class="emo emo-zwaai">🌶️</span>
         <h2 class="kantel reveal">Voor wie is dit?</h2>
-        <p class="reveal">Voor mensen die voelen dat ze zichzelf steeds kleiner maken zodat hun business nog klopt.</p>
-        <p class="reveal">Voor visionairs die sneller groeien dan hun strategie.</p>
-        <p class="reveal">Voor multipassionates die niet één ding willen kiezen, omdat juist de verbinding tussen hun ideeën hun grootste kracht is.</p>
-        <p class="reveal">Voor pioniers die geen trucjes willen leren, maar ruimte willen creëren voor iets wat nog niet eerder bestond.</p>
-        <p class="reveal">Voor neurospicy breinen die al hun leven horen dat ze "te veel" zijn...</p>
-        <p class="klap reveal">terwijl ze diep van binnen weten dat hun manier van denken juist hun grootste kracht is.</p>
-        <div class="ademruimte"></div>
-        <p class="reveal">Voor ondernemers die voelen dat spreken geen marketing is...</p>
-        <span class="megaklap reveal">maar creatie.</span>
+        <p class="reveal">Voor <span class="accent">changemakers</span> die impact willen maken én een winstgevende business willen bouwen zonder zichzelf onderweg kwijt te raken.</p>
+        <p class="reveal">Voor <span class="accent">multipassionates</span> die niet één ding willen kiezen, omdat juist de verbinding tussen al hun ideeën hun grootste kracht is.</p>
+        <p class="reveal">Voor <span class="accent">pioniers</span> die geen trucjes willen leren, maar ruimte willen creëren voor iets wat nog niet eerder bestond.</p>
+        <p class="reveal">Voor <span class="accent">neurospicy</span> breinen die al hun hele leven horen dat ze "te veel", "te breed", "te chaotisch" of "te veranderlijk" zijn, terwijl ze diep van binnen weten dat hun manier van denken juist hun grootste kracht is.</p>
+        <p class="reveal">Voor wie voelt dat spreken geen marketinginstrument is, <span class="accent">maar een vorm van creatie.</span></p>
         <div class="knop-wrap">
             <a class="knop" href="#aanmelden">DIT GAAT OVER MIJ. IK DOE MEE</a>
             <span class="knop-sub">Gratis en live</span>
         </div>
     </div>
 </section>
-<svg class="golf" style="background:#22333d;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C300,70 1140,70 1440,0 L1440,0 L0,0 Z" fill="#ffd6e8"/></svg>
+<svg class="golf" style="background:#22333d;" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,0 C300,120 1140,120 1440,0 L1440,0 L0,0 Z" fill="#ffc0dc"/></svg>
 
-<!-- ================= 10. INKT: OVER SONJA ================= -->
+<!-- ================= 8. INKT: OVER SONJA ================= -->
 <section class="s-inkt">
-    <span class="stip" style="width:80px;height:80px;background:#7fd8cf;top:10%;right:7%;animation-delay:0.4s;"></span>
-    <span class="stip" style="width:56px;height:56px;background:#ffd166;top:28%;left:6%;animation-delay:1.5s;"></span>
-    <span class="stip" style="width:64px;height:64px;background:#ff6b57;bottom:22%;right:10%;animation-delay:2.8s;"></span>
-    <span class="stip" style="width:41px;height:41px;background:#e7ddff;bottom:40%;left:8%;animation-delay:1.2s;"></span>
+    <span class="stip" style="width:72px;height:72px;background:#7fd8cf;top:10%;right:7%;animation-delay:0.4s;"></span>
+    <span class="stip" style="width:51px;height:51px;background:#ffd166;top:28%;left:6%;animation-delay:1.5s;"></span>
+    <span class="stip" style="width:57px;height:57px;background:#ff6b57;bottom:22%;right:10%;animation-delay:2.8s;"></span>
+    <span class="stip" style="width:38px;height:38px;background:#e7ddff;bottom:40%;left:8%;animation-delay:1.2s;"></span>
     <div class="inner centreer">
-        <span class="emo emo-tol">🪞</span>
+        <span class="emo emo-tol">💃</span>
         <h2 class="kantel reveal">Over mij</h2>
-        <img class="portret reveal" src="img/sonja-portret.jpeg" alt="Sonja Leonie Brouwer">
-        <p class="reveal" style="text-align:left;">Jarenlang dacht ik dat ik sprekerscoach was.</p>
-        <p class="reveal" style="text-align:left;">Of positioneringsexpert.</p>
-        <p class="reveal" style="text-align:left;">Of marketeer.</p>
-        <p class="reveal" style="text-align:left;">Of businesscoach.</p>
-        <p class="klap reveal" style="text-align:left;">Steeds vond ik weer een nieuw woord.</p>
-        <div class="ademruimte"></div>
-        <p class="reveal" style="text-align:left;">Tot ik ontdekte dat mensen helemaal niet bij mij kwamen voor een presentatie.</p>
-        <p class="reveal" style="text-align:left;">Of een webinar.</p>
-        <p class="reveal" style="text-align:left;">Of een strategie.</p>
-        <p class="reveal" style="text-align:left;">Ze kwamen omdat ik iets in hen zag...</p>
-        <span class="megaklap reveal">wat zij zelf nog niet konden zien.</span>
-        <p class="klap reveal" style="text-align:left;">En precies dát veranderde alles.</p>
-        <div class="ademruimte"></div>
-        <p class="reveal" style="text-align:left;">De afgelopen acht jaar hielp ik honderden ondernemers, experts en sprekers woorden geven aan iets wat veel groter was dan een presentatie.</p>
-        <p class="reveal" style="text-align:left;">Maar achteraf hoorde ik steeds hetzelfde terug.</p>
-        <p class="reveal" style="text-align:left;">Niet: "Mijn presentatie was beter."</p>
-        <p class="groot reveal">Maar: "Ik zie mezelf ineens heel anders."</p>
-        <p class="reveal" style="text-align:left;">En dat is uiteindelijk waar mijn werk altijd over is gegaan.</p>
-        <div class="ademruimte"></div>
-        <p class="reveal" style="text-align:left;">AI is niet de bron van jouw waarde.</p>
-        <p class="reveal" style="text-align:left;">Net zoals spreken dat niet is.</p>
-        <p class="reveal" style="text-align:left;">Of jouw business.</p>
-        <span class="megaklap reveal">Jouw waarde zit in jouw perspectief.</span>
-        <p class="reveal" style="text-align:left;">AI helpt alleen om veel meer van dat perspectief daadwerkelijk de wereld in te brengen.</p>
-        <img class="logo reveal" src="img/logo-wit.png" alt="Vanzelfsprekend">
+        <img class="portret reveal" src="sonja-portret.jpeg" alt="Sonja Leonie Brouwer">
+        <p class="reveal" style="text-align:left;">Ik ben Sonja Leonie Brouwer.</p>
+        <p class="reveal" style="text-align:left;">De afgelopen acht jaar hielp ik honderden ondernemers, experts en sprekers om woorden te geven aan iets wat veel groter was dan een presentatie alleen. Ik ontwierp TEDx-waardige talks, begeleidde ondernemers naar webinars die echt iets in beweging zetten en hielp mensen niet alleen beter spreken, maar vooral steviger staan in hun eigen perspectief.</p>
+        <p class="klap reveal" style="text-align:left;">Vandaag combineer ik mijn ervaring in spreken, positionering, strategie en transformatie met AI.</p>
+        <p class="reveal" style="text-align:left;">Niet als een losse tool waar je af en toe mee chat. Niet alleen als coach of sparringpartner. Maar ook als businesspartner, creator en uitvoerder.</p>
+        <p class="reveal" style="text-align:left;">AI helpt je verbanden zien, woorden vinden voor wat nog geen taal had en ideeën sneller tot leven brengen. Het kan meedenken, structureren, schrijven, uitwerken en bouwen, zodat niet alles meer op jouw schouders terechtkomt.</p>
+        <p class="reveal" style="text-align:left;">Eindelijk hoeven al die ideeën in jouw hoofd niet te blijven wachten tot jij tijd, focus of energie genoeg hebt om ze één voor één zelf uit te voeren.</p>
+        <p class="reveal" style="text-align:left;">Terwijl jij doet waar jij het allerbeste in bent, creëren, verbinden, richting geven en nieuwe mogelijkheden zien, helpt AI je om veel meer van wat er in jou leeft daadwerkelijk de wereld in te krijgen.</p>
+        <p class="reveal" style="text-align:left;">AI vervangt jouw creativiteit niet.</p>
+        <p class="reveal" style="text-align:left;">Het zorgt ervoor dat veel meer van jouw creativiteit ook echt tot leven komt.</p>
+        <p class="reveal" style="text-align:left;">Nooit als de bron van jouw waarde.</p>
+        <p class="reveal" style="text-align:left;">Want jouw waarde zit niet in de output van een machine.</p>
+        <span class="uitspringer reveal">Jouw waarde zit in de manier waarop jij de wereld ziet.</span>
+        <img class="logo-over-mij reveal" src="logo-wit.png" alt="Vanzelfsprekend">
     </div>
 </section>
-<svg class="golf" style="background:#101014;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C420,70 1020,70 1440,0 L1440,0 L0,0 Z" fill="#22333d"/></svg>
+<svg class="golf" style="background:#101014;" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,0 C420,120 1020,120 1440,0 L1440,0 L0,0 Z" fill="#17252d"/></svg>
 
-<!-- ================= 11. ZWART: WAT ANDEREN ERVAREN ================= -->
+<!-- ================= 9. ZWART: WAT ANDEREN ERVAREN ================= -->
 <section class="s-zwart">
-    <span class="stip" style="width:85px;height:85px;background:#00f0ff;top:8%;left:6%;animation-delay:0.2s;"></span>
-    <span class="stip" style="width:68px;height:68px;background:#ff2ec4;top:22%;right:8%;animation-delay:1.6s;"></span>
-    <span class="stip" style="width:51px;height:51px;background:#39ff88;bottom:18%;left:9%;animation-delay:2.3s;"></span>
-    <span class="stip" style="width:38px;height:38px;background:#ffe600;bottom:34%;right:6%;animation-delay:0.9s;"></span>
+    <span class="stip" style="width:77px;height:77px;background:#00f0ff;top:8%;left:6%;animation-delay:0.2s;"></span>
+    <span class="stip" style="width:55px;height:55px;background:#ff2ec4;top:22%;right:8%;animation-delay:1.6s;"></span>
+    <span class="stip" style="width:61px;height:61px;background:#39ff88;bottom:18%;left:9%;animation-delay:2.3s;"></span>
+    <span class="stip" style="width:41px;height:41px;background:#ffe600;bottom:34%;right:6%;animation-delay:0.9s;"></span>
     <div class="inner">
         <span class="emo emo-stuiter">💬</span>
-        <p class="klap reveal">Mensen denken vaak dat ze bij mij komen voor een presentatie.</p>
-        <p class="reveal">Achteraf zeggen ze bijna allemaal hetzelfde.</p>
-        <span class="megaklap reveal">"Ik ben mezelf anders gaan zien."</span>
-        <p class="reveal">Dit zeggen mensen zelden over een presentatie.</p>
-        <p class="klap reveal">Maar opvallend vaak... over zichzelf.</p>
-        <div class="ademruimte"></div>
+        <h2 class="kantel reveal">Wat anderen ervaren</h2>
         <div class="quote reveal">"Sonja wist in één gesprek de kern te raken waar ik zelf al jaren omheen draaide. Niet alleen mijn verhaal veranderde, maar ook de manier waarop ik naar mijn bedrijf keek."<span class="naam">– Esther Muizelaar</span></div>
         <div class="quote reveal">"Ik dacht dat ik hulp nodig had bij mijn presentatie. Uiteindelijk bleek ik vooral ruimte nodig te hebben om mezelf volledig neer te zetten."<span class="naam">– Debbie Bernasco</span></div>
         <div class="quote reveal">"Ze leert je niet hoe je moet spreken. Ze helpt je ontdekken wat er al gezegd wil worden."<span class="naam">– Henk Fransen</span></div>
@@ -851,64 +724,32 @@ body.popup-open { overflow: hidden; }
         <div class="quote reveal">"Sonja heeft mij vanuit verhalen uit mijn hoofd gebracht naar het verhaal uit mijn hart."<span class="naam">– Richard Kamer</span></div>
     </div>
 </section>
-<svg class="golf" style="background:#e9a63c;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C360,70 1080,70 1440,0 L1440,0 L0,0 Z" fill="#101014"/></svg>
+<svg class="golf" style="background:#f7d3e3;" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,0 C360,120 1080,120 1440,0 L1440,0 L0,0 Z" fill="#050506"/></svg>
 
-<!-- ================= 12. OKER: WAT MAG ER ONTSTAAN ================= -->
-<section class="s-oker">
-    <span class="stip" style="width:90px;height:90px;background:#fdf8ef;top:8%;left:6%;animation-delay:0.5s;"></span>
-    <span class="stip" style="width:72px;height:72px;background:#ff6b57;top:24%;right:7%;animation-delay:1.7s;"></span>
-    <span class="stip" style="width:54px;height:54px;background:#6c3ff2;bottom:16%;left:10%;animation-delay:2.4s;"></span>
-    <span class="stip" style="width:40px;height:40px;background:#1d1a3a;bottom:32%;right:9%;animation-delay:1s;"></span>
-    <div class="inner">
-        <span class="emo emo-puls">🌀</span>
-        <h2 class="kantel reveal">Wat mag er ontstaan als jij jezelf eindelijk niet meer probeert te vangen?</h2>
-        <p class="reveal">Niet nóg een webinar.</p>
-        <p class="reveal">Niet nóg een strategie.</p>
-        <span class="megaklap reveal">Maar een groter speelveld.</span>
-        <p class="reveal">Een plek waarin jij kunt blijven groeien...</p>
-        <p class="klap reveal">zonder jezelf steeds opnieuw kleiner te hoeven maken.</p>
-        <div class="ademruimte"></div>
-        <p class="reveal">Waar spreken geen marketingtruc meer is.</p>
-        <p class="klap reveal">Maar een natuurlijke vorm van creëren.</p>
-        <p class="reveal">Waar verkopen geen onderbreking van jouw creativiteit meer is.</p>
-        <p class="klap reveal">Maar het logische gevolg ervan.</p>
-    </div>
-</section>
-<svg class="golf" style="background:#fdf8ef;" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,0 C480,70 960,70 1440,0 L1440,0 L0,0 Z" fill="#e9a63c"/></svg>
-
-<!-- ================= 13. ROOM: SPEELVELD-FOTO + FINALE + FORMULIER ================= -->
+<!-- ================= 10. ROOM: DE UITNODIGING + FORMULIER ================= -->
 <section class="s-room" id="aanmelden">
-    <span class="stip" style="width:96px;height:96px;background:#39ff14;top:6%;right:7%;animation-delay:0.5s;"></span>
-    <span class="stip" style="width:77px;height:77px;background:#ff6b57;top:12%;left:9%;animation-delay:1.7s;"></span>
-    <span class="stip" style="width:68px;height:68px;background:#6c3ff2;bottom:30%;right:11%;animation-delay:2.6s;"></span>
-    <span class="stip" style="width:50px;height:50px;background:#39ff14;bottom:14%;left:7%;animation-delay:1s;"></span>
+    <span class="stip" style="width:85px;height:85px;background:#ffd166;top:6%;right:7%;animation-delay:0.5s;"></span>
+    <span class="stip" style="width:60px;height:60px;background:#ff6b57;top:12%;left:9%;animation-delay:1.7s;"></span>
+    <span class="stip" style="width:66px;height:66px;background:#6c3ff2;bottom:30%;right:11%;animation-delay:2.6s;"></span>
+    <span class="stip" style="width:45px;height:45px;background:#0f5e5a;bottom:14%;left:7%;animation-delay:1s;"></span>
     <div class="inner">
         <span class="emo emo-stuiter">🎪</span>
-        <p class="groot centreer reveal">Stel je eens voor...</p>
-        <p class="reveal">...dat jouw business eindelijk net zo groot mag worden als jouw visie.</p>
-        <p class="klap reveal">En jij niet langer hoeft te krimpen om erin te passen.</p>
+        <h2 class="kantel reveal">Wat mag er ontstaan als jij jezelf eindelijk niet meer probeert te vangen?</h2>
+        <p class="reveal">Niet om nóg een webinar te volgen.</p>
+        <p class="reveal">Maar om te ervaren hoe het voelt als spreken geen trucje meer is. Geen script. Geen toneelstuk waarin je iemand probeert te overtuigen.</p>
+        <p class="reveal">Wel een levend speelveld waarin jij creëert terwijl je spreekt. Waarin jouw perspectief zich live mag ontvouwen. Waarin mensen niet instappen omdat jij de perfecte pitch hebt, maar omdat ze voelen dat jij iets ziet waar ze zelf nog blind voor zijn.</p>
         <div class="fotolijst reveal">
-            <img src="img/sonja-speelveld.png" alt="Sonja op haar eigen speelveld">
-            <span class="sticker">jouw speelveld wacht al ;-)</span>
+            <img src="sonja-speelveld.png" alt="Sonja op haar eigen speelveld">
+            <span class="sticker">samen creëren we een groter speelveld ;-)</span>
         </div>
-        <span class="megaklap rechtsom reveal">Je bent niet te veel.<br>Je speelveld was te klein.</span>
+        <p class="klap reveal">En misschien is dat wel de grootste verschuiving van allemaal.</p>
+        <p class="reveal">Dat spreken, creëren, impact maken én een winstgevende business bouwen niet langer vier losse werelden zijn.</p>
+        <p class="reveal">Dat je niet eerst maanden hoeft te creëren om daarna pas te mogen verkopen. Dat verkopen geen onderbreking meer is van jouw creativiteit, maar er een vanzelfsprekend gevolg van wordt.</p>
+        <p class="reveal">Omdat jouw doelgroep niet instapt door de manier waarop jij verkoopt. Ze stappen in omdat ze willen blijven in de ruimte die jij hebt geopend.</p>
+        <p class="reveal">En dát is precies wat een Vanzelfsprekinar is: een speelveld waarin niet alleen jouw publiek transformeert, maar waarin jijzelf ook blijft creëren terwijl je spreekt. Waarin nieuwe inzichten ontstaan terwijl je ze uitspreekt en jouw visie mag blijven groeien, zonder dat je haar opnieuw hoeft vast te zetten.</p>
         <div class="ademruimte"></div>
-        <p class="reveal">Misschien is dit wel de grootste verschuiving van allemaal.</p>
-        <p class="reveal">Dat jij jezelf niet langer hoeft aan te passen aan jouw business.</p>
-        <p class="klap reveal">Maar dat jouw business eindelijk groot genoeg mag worden voor jou.</p>
-        <p class="reveal">Dat spreken, creëren, impact maken en ondernemen geen losse werelden meer zijn.</p>
-        <p class="klap reveal">Maar één natuurlijke beweging.</p>
-        <div class="ademruimte"></div>
-        <p class="reveal">En misschien... is dat wel wat een Vanzelfsprekinar werkelijk is.</p>
-        <p class="reveal">Geen webinar. Geen verkooppresentatie. Geen strategie.</p>
-        <p class="klap reveal">Maar een speelveld waarin jij én jouw publiek tegelijk expanden.</p>
-        <p class="reveal">Waar jij creëert terwijl je spreekt.</p>
-        <p class="reveal">Waar nieuwe inzichten ontstaan terwijl je ze uitspreekt.</p>
-        <p class="reveal">En waar verkopen geen trucje meer is...</p>
-        <p class="klap reveal">maar een vanzelfsprekend gevolg van de ruimte die jij hebt geopend.</p>
-        <div class="ademruimte"></div>
-        <p class="reveal">Bouw geen business waar jij in past.</p>
-        <span class="megaklap reveal">Bouw een speelveld dat met jou mee kan expanderen.</span>
+        <p class="klap reveal">Misschien is jouw volgende stap niet nóg harder werken aan je business.</p>
+        <span class="uitspringer rechtsom reveal">Misschien is het tijd om een speelveld te bouwen dat eindelijk net zo beweeglijk mag zijn als jij.</span>
 
         <div class="knop-wrap">
             <a class="knop" href="#aanmelden">JA, IK SPRING HET SPEELVELD OP!</a>
@@ -916,11 +757,6 @@ body.popup-open { overflow: hidden; }
         </div>
     </div>
 </section>
-
-<!-- ================= FOOTER MET LOGO ================= -->
-<footer class="voet">
-    <img src="img/logo-wit.png" alt="Vanzelfsprekend">
-</footer>
 
 <!-- ================= POPUP MET AANMELDFORMULIER ================= -->
 <div class="popup-achtergrond" id="popup">
@@ -945,7 +781,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // versienummer: check in de console (F12) welke versie live staat
-console.log('Vanzelfsprekinar pagina versie 9');
+console.log('Vanzelfsprekinar pagina versie 10');
 
 // het WebinarGeek-formulier wordt pas geladen bij de eerste klik op een button
 // (als het direct bij paginaload laadt, legt het zich onzichtbaar over de pagina heen en blokkeert het de buttons)
